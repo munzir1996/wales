@@ -36,7 +36,11 @@ class ProjectManagerController extends Controller
      */
     public function store(StoreProjectManagerRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        ProjectManager::create([
+            'name' => $data['name']
+        ]);
     }
 
     /**
@@ -70,7 +74,11 @@ class ProjectManagerController extends Controller
      */
     public function update(UpdateProjectManagerRequest $request, ProjectManager $projectManager)
     {
-        //
+        $data = $request->validated();
+
+        $projectManager->update([
+            'name' => $data['name'],
+        ]);
     }
 
     /**
@@ -81,6 +89,6 @@ class ProjectManagerController extends Controller
      */
     public function destroy(ProjectManager $projectManager)
     {
-        //
+        $projectManager->delete();
     }
 }

@@ -36,7 +36,12 @@ class RegionController extends Controller
      */
     public function store(StoreRegionRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        Region::create([
+            'name' => $data['name'],
+            'local_id' => $data['local_id'],
+        ]);
     }
 
     /**
@@ -70,7 +75,12 @@ class RegionController extends Controller
      */
     public function update(UpdateRegionRequest $request, Region $region)
     {
-        //
+        $data = $request->validated();
+
+        $region->update([
+            'name' => $data['name'],
+            'local_id' => $data['local_id'],
+        ]);
     }
 
     /**
@@ -81,6 +91,6 @@ class RegionController extends Controller
      */
     public function destroy(Region $region)
     {
-        //
+        $region->delete();
     }
 }

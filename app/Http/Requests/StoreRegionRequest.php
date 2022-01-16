@@ -13,7 +13,7 @@ class StoreRegionRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class StoreRegionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'local_id' => 'required',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'الأسم مطلوب',
+            'local_id.required' => 'المحلية مطلوبة',
         ];
     }
 }

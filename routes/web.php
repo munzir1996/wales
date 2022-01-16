@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\LocalController;
+use App\Http\Controllers\ProjectManagerController;
+use App\Http\Controllers\RegionController;
 use App\Http\Controllers\StateController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,5 +26,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::resource('/states', StateController::class);
+Route::resource('/locals', LocalController::class);
+Route::resource('/regions', RegionController::class);
+Route::resource('/project-managers', ProjectManagerController::class)->parameter('project_manager', 'projectManager');
 
 require __DIR__.'/auth.php';

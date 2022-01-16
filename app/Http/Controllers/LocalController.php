@@ -36,7 +36,12 @@ class LocalController extends Controller
      */
     public function store(StoreLocalRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        Local::create([
+            'name' => $data['name'],
+            'state_id' => $data['state_id'],
+        ]);
     }
 
     /**
@@ -70,7 +75,12 @@ class LocalController extends Controller
      */
     public function update(UpdateLocalRequest $request, Local $local)
     {
-        //
+        $data = $request->validated();
+
+        $local->update([
+            'name' => $data['name'],
+            'state_id' => $data['state_id'],
+        ]);
     }
 
     /**
@@ -81,6 +91,6 @@ class LocalController extends Controller
      */
     public function destroy(Local $local)
     {
-        //
+        $local->delete();
     }
 }
