@@ -5,6 +5,7 @@ use App\Http\Controllers\LocalController;
 use App\Http\Controllers\ProjectManagerController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\StateController;
+use App\Http\Controllers\WellController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,6 @@ Route::resource('/locals', LocalController::class);
 Route::resource('/regions', RegionController::class);
 Route::resource('/project-managers', ProjectManagerController::class)->parameter('project_manager', 'projectManager');
 Route::resource('/basic-informations', BasicInformationController::class)->parameter('basic_information', 'basicInformation');
+Route::resource('/wells', WellController::class);
 
 require __DIR__.'/auth.php';

@@ -13,6 +13,8 @@ use Tests\TestCase;
 
 class BasicInformationTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     public function user_can_create_a_basic_information()
     {
