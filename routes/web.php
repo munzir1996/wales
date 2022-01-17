@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasicInformationController;
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\ProjectManagerController;
 use App\Http\Controllers\RegionController;
@@ -29,5 +30,6 @@ Route::resource('/states', StateController::class);
 Route::resource('/locals', LocalController::class);
 Route::resource('/regions', RegionController::class);
 Route::resource('/project-managers', ProjectManagerController::class)->parameter('project_manager', 'projectManager');
+Route::resource('/basic-informations', BasicInformationController::class)->parameter('basic_information', 'basicInformation');
 
 require __DIR__.'/auth.php';

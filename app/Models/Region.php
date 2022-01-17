@@ -16,4 +16,9 @@ class Region extends Model
     {
         return $this->belongsTo(Local::class);
     }
+
+    public function basicInformations()
+    {
+        return $this->hasMany(BasicInformation::class);
+    }
 }

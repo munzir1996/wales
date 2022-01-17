@@ -36,7 +36,20 @@ class BasicInformationController extends Controller
      */
     public function store(StoreBasicInformationRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        BasicInformation::create([
+            'start_date' => $data['start_date'],
+            'execution_time' => $data['execution_time'],
+            'owner' => $data['owner'],
+            'advisor' => $data['advisor'],
+            'funded' => $data['funded'],
+            'total_cost' => $data['total_cost'],
+            'state_id' => $data['state_id'],
+            'local_id' => $data['local_id'],
+            'region_id' => $data['region_id'],
+            'project_manager_id' => $data['project_manager_id'],
+        ]);
     }
 
     /**
@@ -70,7 +83,20 @@ class BasicInformationController extends Controller
      */
     public function update(UpdateBasicInformationRequest $request, BasicInformation $basicInformation)
     {
-        //
+        $data = $request->validated();
+
+        $basicInformation->update([
+            'start_date' => $data['start_date'],
+            'execution_time' => $data['execution_time'],
+            'owner' => $data['owner'],
+            'advisor' => $data['advisor'],
+            'funded' => $data['funded'],
+            'total_cost' => $data['total_cost'],
+            'state_id' => $data['state_id'],
+            'local_id' => $data['local_id'],
+            'region_id' => $data['region_id'],
+            'project_manager_id' => $data['project_manager_id'],
+        ]);
     }
 
     /**
@@ -81,6 +107,6 @@ class BasicInformationController extends Controller
      */
     public function destroy(BasicInformation $basicInformation)
     {
-        //
+        $basicInformation->delete();
     }
 }

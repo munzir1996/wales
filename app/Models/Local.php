@@ -17,13 +17,13 @@ class Local extends Model
         return $this->belongsTo(State::class);
     }
 
-    /**
-     * Get all of the regions for the Local
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function regions()
     {
         return $this->hasMany(Region::class);
+    }
+
+    public function basicInformations()
+    {
+        return $this->hasMany(BasicInformation::class);
     }
 }

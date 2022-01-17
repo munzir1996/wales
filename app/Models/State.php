@@ -16,4 +16,9 @@ class State extends Model
     {
         return $this->hasMany(Local::class);
     }
+
+    public function basicInformations()
+    {
+        return $this->hasMany(BasicInformation::class);
+    }
 }

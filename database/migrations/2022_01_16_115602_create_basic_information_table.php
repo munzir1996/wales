@@ -26,6 +26,7 @@ class CreateBasicInformationTable extends Migration
             $table->foreignId('local_id')->constrained('locals')->cascadeOnDelete();
             $table->foreignId('region_id')->constrained('regions')->cascadeOnDelete();
             $table->foreignId('project_manager_id')->constrained('project_managers')->cascadeOnDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

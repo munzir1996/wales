@@ -12,4 +12,8 @@ class ProjectManager extends Model
 
     protected $guarded = [];
 
+    public function basicInformations()
+    {
+        return $this->hasMany(BasicInformation::class);
+    }
 }
