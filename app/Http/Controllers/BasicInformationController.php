@@ -34,11 +34,13 @@ class BasicInformationController extends Controller
     public function create()
     {
         $states = State::all();
-        // $locals = Local::all();
+        $locals = Local::all();
+        $regions = Region::all();
 
         return view('basic-informations.create', [
             'states' => $states,
-            // 'locals' => $locals,
+            'locals' => $locals,
+            'regions' => $regions,
         ]);
     }
 

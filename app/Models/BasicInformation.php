@@ -16,7 +16,7 @@ class BasicInformation extends Model
 
     public function state()
     {
-        return $this->belongsTo(state::class);
+        return $this->belongsTo(State::class);
     }
 
     public function local()
