@@ -92,7 +92,7 @@ class BasicInformationController extends Controller
      */
     public function show(BasicInformation $basicInformation)
     {
-        //
+        return view('basic-informations.show', compact('basicInformation'));
     }
 
     /**
