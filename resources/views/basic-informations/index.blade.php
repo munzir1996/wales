@@ -49,27 +49,7 @@
                                     <th scope="col" class="px-6 py-3 text-right">
                                         #
                                     </th>
-
-                                    <th scope="col"
-                                        class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        الولاية
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        المحلية
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        المنطقة
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        تاريخ التنفيذ
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        مدة التنفيذ
-                                    </th>
+                         
                                     <th scope="col"
                                         class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
                                         الجهة المالكة
@@ -86,10 +66,7 @@
                                         class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
                                         مدير المشروع
                                     </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        التكلفة الكلية
-                                    </th>
+                   
 
                                     <th scope="col"
                                         class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
@@ -103,22 +80,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         {{$basicInformation->id}}
                                     </td>
-
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->state->name}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->local->name}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->region->name}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->start_date}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->execution_time}}
-                                    </td>
+                           
                                     <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
                                         {{$basicInformation->owner}}
                                     </td>
@@ -131,10 +93,7 @@
                                     <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
                                         {{$basicInformation->project_manager}}
                                     </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->total_cost}}
-                                    </td>
-
+                       
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center space-x-4">
                                             <a href="{{route('basic-informations.show', $basicInformation->id)}}" class="text-gray-500 focus:outline-none hover:text-indigo-500">
@@ -173,30 +132,7 @@
                         </table>
 
                         <div class="w-full mt-8 bg-white dark:bg-gray-800">
-                            <div
-                                class="container flex flex-col items-center mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 ">
-                                <div class="-mx-2">
-                                    <a href="#"
-                                        class="inline-flex items-center justify-center px-4 py-1 mx-2 text-gray-700 transition-colors duration-200 transform bg-gray-100 rounded-lg dark:text-white dark:bg-gray-700">
-                                        1
-                                    </a>
-
-                                    <a href="#"
-                                        class="inline-flex items-center justify-center px-4 py-1 mx-2 text-gray-700 transition-colors duration-200 transform rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                                        2
-                                    </a>
-
-                                    <a href="#"
-                                        class="inline-flex items-center justify-center px-4 py-1 mx-2 text-gray-700 transition-colors duration-200 transform rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                                        3
-                                    </a>
-                                </div>
-
-                                <div class="text-gray-500 dark:text-gray-400">
-                                    <span class="font-medium text-gray-700 dark:text-gray-100">1 - 25</span> of 77
-                                    records
-                                </div>
-                            </div>
+                        
                         </div>
                     </div>
                 </div>
