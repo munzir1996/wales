@@ -28,7 +28,9 @@ Route::prefix('/')->middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
     Route::resource('/states', StateController::class);
+    Route::get('states/locals/{state}', [StateController::class, 'getLocals']);
     Route::resource('/locals', LocalController::class);
+    Route::get('locals/regions/{local}', [LocalController::class, 'getRegions']);
     Route::resource('/regions', RegionController::class);
     Route::resource('/project-managers', ProjectManagerController::class)->parameter('project_manager', 'projectManager');
     Route::resource('/basic-informations', BasicInformationController::class)->parameter('basic_information', 'basicInformation');

@@ -119,4 +119,10 @@ class LocalController extends Controller
 
         return redirect()->route('locals.index');
     }
+
+    public function getRegions(Local $local)
+    {
+        return response()->json($local->regions);
+    }
+
 }

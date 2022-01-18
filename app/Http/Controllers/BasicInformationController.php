@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\BasicInformation;
 use App\Http\Requests\StoreBasicInformationRequest;
 use App\Http\Requests\UpdateBasicInformationRequest;
+use App\Models\Local;
+use App\Models\Region;
+use App\Models\State;
+use App\Models\Well;
 
 class BasicInformationController extends Controller
 {
@@ -15,7 +19,11 @@ class BasicInformationController extends Controller
      */
     public function index()
     {
-        //
+        $basicInformations = BasicInformation::all();
+
+        return view('basic-informations.index', [
+            'basicInformations' => $basicInformations,
+        ]);
     }
 
     /**
@@ -25,7 +33,13 @@ class BasicInformationController extends Controller
      */
     public function create()
     {
-        //
+        $states = State::all();
+        // $locals = Local::all();
+
+        return view('basic-informations.create', [
+            'states' => $states,
+            // 'locals' => $locals,
+        ]);
     }
 
     /**
@@ -38,7 +52,7 @@ class BasicInformationController extends Controller
     {
         $data = $request->validated();
 
-        BasicInformation::create([
+        $basicInformation = BasicInformation::create([
             'start_date' => $data['start_date'],
             'execution_time' => $data['execution_time'],
             'owner' => $data['owner'],
@@ -48,8 +62,24 @@ class BasicInformationController extends Controller
             'state_id' => $data['state_id'],
             'local_id' => $data['local_id'],
             'region_id' => $data['region_id'],
-            // 'project_manager_id' => $data['project_manager_id'],
+            'project_manager' => $data['project_manager'],
         ]);
+
+        Well::create([
+            'longitude' => $data['longitude'],
+            'latitude' => $data['latitude'],
+            'well_depth' => $data['well_depth'],
+            'packaging_depth' => $data['packaging_depth'],
+            'swl' => $data['swl'],
+            'dwl' => $data['dwl'],
+            'productivity' => $data['productivity'],
+            'psd' => $data['psd'],
+            'basic_information_id' => $basicInformation->id,
+        ]);
+
+        session()->flash('success', 'تم الأضافة');
+
+        return redirect()->route('basic-informations.create');
     }
 
     /**
@@ -71,7 +101,16 @@ class BasicInformationController extends Controller
      */
     public function edit(BasicInformation $basicInformation)
     {
-        //
+        $states = State::all();
+        $locals = Local::all();
+        $regions = Region::all();
+
+        return view('basic-informations.edit', [
+            'basicInformation' => $basicInformation,
+            'states' => $states,
+            'locals' => $locals,
+            'regions' => $regions,
+        ]);
     }
 
     /**
@@ -95,8 +134,23 @@ class BasicInformationController extends Controller
             'state_id' => $data['state_id'],
             'local_id' => $data['local_id'],
             'region_id' => $data['region_id'],
-            // 'project_manager_id' => $data['project_manager_id'],
+            'project_manager' => $data['project_manager'],
         ]);
+
+        $basicInformation->well->update([
+            'longitude' => $data['longitude'],
+            'latitude' => $data['latitude'],
+            'well_depth' => $data['well_depth'],
+            'packaging_depth' => $data['packaging_depth'],
+            'swl' => $data['swl'],
+            'dwl' => $data['dwl'],
+            'productivity' => $data['productivity'],
+            'psd' => $data['psd'],
+        ]);
+
+        session()->flash('success', 'تم التعديل');
+
+        return redirect()->route('basic-informations.edit', $basicInformation->id);
     }
 
     /**
@@ -108,5 +162,9 @@ class BasicInformationController extends Controller
     public function destroy(BasicInformation $basicInformation)
     {
         $basicInformation->delete();
+
+        session()->flash('success', 'تم الحذف');
+
+        return redirect()->route('basic-informations.index');
     }
 }

@@ -33,7 +33,15 @@ class StoreBasicInformationRequest extends FormRequest
             'state_id' => 'required',
             'local_id' => 'required',
             'region_id' => 'required',
-            // 'project_manager_id' => 'required',
+            'project_manager' => 'required',
+            'longitude' => 'required',
+            'latitude' => 'required',
+            'well_depth' => 'required',
+            'packaging_depth' => 'required',
+            'swl' => 'required',
+            'dwl' => 'required',
+            'productivity' => 'required',
+            'psd' => 'required',
         ];
     }
 
@@ -54,7 +62,15 @@ class StoreBasicInformationRequest extends FormRequest
             'state_id.required' => 'الولاية مطلوبة',
             'local_id.required' => 'المحلية مطلوبة',
             'region_id.required' => 'المنطقة مطلوبة',
-            // 'project_manager_id.required' => 'مدير المشروع مطلوب',
+            'project_manager.required' => 'مدير المشروع مطلوب',
+            'longitude' => 'خط الطول مطلوب',
+            'latitude' => 'خط العرض مطلوب',
+            'well_depth' => 'عمق البئر مطلوب',
+            'packaging_depth' => 'عمق التغليف مطلوب',
+            'swl' => 'مستوي المياه الثابت مطلوب',
+            'dwl' => 'مستوي المياه المتحرك مطلوب',
+            'productivity' => 'الأنتاجية مطلوبة',
+            'psd' => 'مستوي الإنزال مطلوب',
         ];
     }
 }

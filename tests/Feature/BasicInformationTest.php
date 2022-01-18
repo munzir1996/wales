@@ -32,7 +32,7 @@ class BasicInformationTest extends TestCase
             'state_id' => $region->local->state->id,
             'local_id' => $region->local->id,
             'region_id' => $region->id,
-            'project_manager_id' => $projectManager->id,
+            'project_manager' => $projectManager->id,
         ]);
 
         $this->assertDatabaseHas('basic_information', [
@@ -44,7 +44,7 @@ class BasicInformationTest extends TestCase
             'state_id' => $region->local->state->id,
             'local_id' => $region->local->id,
             'region_id' => $region->id,
-            'project_manager_id' => $projectManager->id,
+            'project_manager' => $projectManager->id,
         ]);
     }
 
@@ -66,7 +66,7 @@ class BasicInformationTest extends TestCase
             'state_id' => $region->local->state->id,
             'local_id' => $region->local->id,
             'region_id' => $region->id,
-            'project_manager_id' => $projectManager->id,
+            'project_manager' => $projectManager->id,
         ]);
 
         $this->assertDatabaseHas('basic_information', [
@@ -78,7 +78,7 @@ class BasicInformationTest extends TestCase
             'state_id' => $region->local->state->id,
             'local_id' => $region->local->id,
             'region_id' => $region->id,
-            'project_manager_id' => $projectManager->id,
+            'project_manager' => $projectManager->id,
         ]);
     }
 

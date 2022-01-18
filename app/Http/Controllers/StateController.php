@@ -109,4 +109,9 @@ class StateController extends Controller
 
         return redirect()->route('states.index');
     }
+
+    public function getLocals(State $state)
+    {
+        return response()->json($state->locals);
+    }
 }

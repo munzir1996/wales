@@ -12,6 +12,7 @@ class BasicInformation extends Model
     use HasFactory, SoftDeletes, CascadeSoftDeletes;
 
     protected $guarded = [];
+    protected $cascadeDeletes = ['well'];
 
     public function state()
     {
@@ -26,6 +27,11 @@ class BasicInformation extends Model
     public function region()
     {
         return $this->belongsTo(Region::class);
+    }
+
+    public function well()
+    {
+        return $this->hasOne(Well::class);
     }
 
     // public function projectManager()

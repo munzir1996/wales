@@ -20,11 +20,11 @@ class CreateBasicInformationTable extends Migration
             $table->string('owner');
             $table->string('advisor');
             $table->string('funded');
+            $table->string('project_manager');
             $table->double('total_cost', 2);
             $table->foreignId('state_id');
             $table->foreignId('local_id');
             $table->foreignId('region_id');
-            // $table->foreignId('project_manager_id');
             $table->softDeletes();
             $table->timestamps();
 

@@ -12,4 +12,9 @@ class Well extends Model
     use HasFactory, SoftDeletes, CascadeSoftDeletes;
 
     protected $guarded = [];
+
+    public function basicInformation()
+    {
+        return $this->belongsTo(BasicInformation::class);
+    }
 }
