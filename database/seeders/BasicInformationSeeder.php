@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BasicInformation;
 use Illuminate\Database\Seeder;
 
 class BasicInformationSeeder extends Seeder
@@ -13,6 +14,6 @@ class BasicInformationSeeder extends Seeder
      */
     public function run()
     {
-        //
+        BasicInformation::factory(5)->create();
     }
 }

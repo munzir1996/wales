@@ -19,19 +19,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::prefix('/')->middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::resource('/states', StateController::class);
+    Route::resource('/locals', LocalController::class);
+    Route::resource('/regions', RegionController::class);
+    Route::resource('/project-managers', ProjectManagerController::class)->parameter('project_manager', 'projectManager');
+    Route::resource('/basic-informations', BasicInformationController::class)->parameter('basic_information', 'basicInformation');
+    Route::resource('/wells', WellController::class);
+
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-Route::resource('/states', StateController::class);
-Route::resource('/locals', LocalController::class);
-Route::resource('/regions', RegionController::class);
-Route::resource('/project-managers', ProjectManagerController::class)->parameter('project_manager', 'projectManager');
-Route::resource('/basic-informations', BasicInformationController::class)->parameter('basic_information', 'basicInformation');
-Route::resource('/wells', WellController::class);
 
 require __DIR__.'/auth.php';

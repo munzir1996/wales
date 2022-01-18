@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Well;
 use Illuminate\Database\Seeder;
 
 class WellSeeder extends Seeder
@@ -13,6 +14,6 @@ class WellSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Well::factory(10)->create();
     }
 }

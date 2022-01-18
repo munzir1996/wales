@@ -18,7 +18,7 @@
                     </svg>
                 </button>
 
-                <div class="absolute right-0 z-20 w-64 mt-2 overflow-hidden bg-white rounded-md shadow-lg sm:w-80"
+                <div class="absolute left-0 z-20 w-64 mt-2 overflow-hidden bg-white rounded-md shadow-lg sm:w-80"
                     x-show="dropdownOpen"
                     x-cloak
                     x-transition:enter="transition ease-out duration-100 transform"
@@ -55,7 +55,7 @@
                     <img class="flex-shrink-0 object-cover w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="john avatar">
                 </button>
 
-                <div class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl"
+                <div class="absolute left-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl"
                     x-show="dropdownOpen"
                     x-cloak
                     x-transition:enter="transition ease-out duration-100 transform"

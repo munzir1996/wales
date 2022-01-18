@@ -35,17 +35,15 @@
                             <h1 class="text-2xl font-medium text-gray-700 sm:text-3xl">@stack('title')</h1>
 
                             <div class="hidden mt-3 overflow-y-auto text-sm lg:items-center lg:flex whitespace-nowrap">
-                                <a href="#" class="text-gray-600 dark:text-gray-200 hover:underline">
-                                    Pages
+                                <a href="{{route('dashboard')}}" class="text-indigo-600 dark:text-gray-200 hover:underline">
+                                    لوحة التحكم
                                 </a>
 
                                 <span class="mx-1 text-gray-500 dark:text-gray-300">
                                     /
                                 </span>
 
-                                <a href="#" class="text-indigo-600 dark:text-gray-200 hover:underline">
-                                    @stack('title')
-                                </a>
+                                @stack('breadcrumb')
                             </div>
                         </div>
 
@@ -59,7 +57,7 @@
 
         <!-- Scripts -->
         @include('includes.scripts')
-        {{-- @include('includes.messages') --}}
+        @include('includes.messages')
     </body>
 </html>
 
