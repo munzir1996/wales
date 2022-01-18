@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Dyrynda\Database\Support\CascadeSoftDeletes;
 
 class Local extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, CascadeSoftDeletes;
 
     protected $guarded = [];
+    protected $cascadeDeletes = ['regions', 'basicInformations'];
 
     public function state()
     {

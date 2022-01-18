@@ -21,13 +21,17 @@ class CreateBasicInformationTable extends Migration
             $table->string('advisor');
             $table->string('funded');
             $table->double('total_cost', 2);
-
-            $table->foreignId('state_id')->constrained('states')->cascadeOnDelete();
-            $table->foreignId('local_id')->constrained('locals')->cascadeOnDelete();
-            $table->foreignId('region_id')->constrained('regions')->cascadeOnDelete();
-            $table->foreignId('project_manager_id')->constrained('project_managers')->cascadeOnDelete();
+            $table->foreignId('state_id');
+            $table->foreignId('local_id');
+            $table->foreignId('region_id');
+            // $table->foreignId('project_manager_id');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
+            $table->foreign('local_id')->references('id')->on('locals')->onDelete('cascade');
+            $table->foreign('region_id')->references('id')->on('regions')->onDelete('cascade');
+            // $table->foreign('project_manager_id')->references('id')->on('project_managers')->onDelete('cascade');
         });
     }
 

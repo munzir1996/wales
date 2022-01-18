@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Dyrynda\Database\Support\CascadeSoftDeletes;
 
 class BasicInformation extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, CascadeSoftDeletes;
 
     protected $guarded = [];
 
@@ -27,8 +28,8 @@ class BasicInformation extends Model
         return $this->belongsTo(Region::class);
     }
 
-    public function projectManager()
-    {
-        return $this->belongsTo(ProjectManager::class);
-    }
+    // public function projectManager()
+    // {
+    //     return $this->belongsTo(ProjectManager::class);
+    // }
 }

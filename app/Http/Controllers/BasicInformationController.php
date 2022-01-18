@@ -48,7 +48,7 @@ class BasicInformationController extends Controller
             'state_id' => $data['state_id'],
             'local_id' => $data['local_id'],
             'region_id' => $data['region_id'],
-            'project_manager_id' => $data['project_manager_id'],
+            // 'project_manager_id' => $data['project_manager_id'],
         ]);
     }
 
@@ -95,7 +95,7 @@ class BasicInformationController extends Controller
             'state_id' => $data['state_id'],
             'local_id' => $data['local_id'],
             'region_id' => $data['region_id'],
-            'project_manager_id' => $data['project_manager_id'],
+            // 'project_manager_id' => $data['project_manager_id'],
         ]);
     }
 

@@ -33,7 +33,7 @@ class StoreBasicInformationRequest extends FormRequest
             'state_id' => 'required',
             'local_id' => 'required',
             'region_id' => 'required',
-            'project_manager_id' => 'required',
+            // 'project_manager_id' => 'required',
         ];
     }
 
@@ -54,7 +54,7 @@ class StoreBasicInformationRequest extends FormRequest
             'state_id.required' => 'الولاية مطلوبة',
             'local_id.required' => 'المحلية مطلوبة',
             'region_id.required' => 'المنطقة مطلوبة',
-            'project_manager_id.required' => 'مدير المشروع مطلوب',
+            // 'project_manager_id.required' => 'مدير المشروع مطلوب',
         ];
     }
 }

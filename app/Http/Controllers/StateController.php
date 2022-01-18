@@ -29,7 +29,7 @@ class StateController extends Controller
      */
     public function create()
     {
-        //
+        return view('states.create');
     }
 
     /**
@@ -45,6 +45,10 @@ class StateController extends Controller
         State::create([
             'name' => $data['name'],
         ]);
+
+        session()->flash('success', 'تم الأضافة');
+
+        return redirect()->route('states.create');
     }
 
     /**
@@ -66,7 +70,9 @@ class StateController extends Controller
      */
     public function edit(State $state)
     {
-        //
+        return view('states.edit', [
+            'state' => $state,
+        ]);
     }
 
     /**
@@ -83,6 +89,10 @@ class StateController extends Controller
         $state->update([
             'name' => $data['name'],
         ]);
+
+        session()->flash('success', 'تم التعديل');
+
+        return redirect()->route('states.edit', $state->id);
     }
 
     /**
@@ -94,5 +104,9 @@ class StateController extends Controller
     public function destroy(State $state)
     {
         $state->delete();
+
+        session()->flash('success', 'تم الحذف');
+
+        return redirect()->route('states.index');
     }
 }

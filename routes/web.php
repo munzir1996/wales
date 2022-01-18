@@ -33,7 +33,6 @@ Route::prefix('/')->middleware(['auth'])->group(function () {
     Route::resource('/project-managers', ProjectManagerController::class)->parameter('project_manager', 'projectManager');
     Route::resource('/basic-informations', BasicInformationController::class)->parameter('basic_information', 'basicInformation');
     Route::resource('/wells', WellController::class);
-
 });
 
 

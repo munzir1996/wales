@@ -23,10 +23,11 @@ class CreateWellsTable extends Migration
             $table->double('dwl', 2);
             $table->double('productivity', 2);
             $table->double('psd', 2);
-
-            $table->foreignId('basic_information_id')->constrained('basic_information')->cascadeOnDelete();
+            $table->foreignId('basic_information_id');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('basic_information_id')->references('id')->on('basic_information')->onDelete('cascade');
         });
     }
 

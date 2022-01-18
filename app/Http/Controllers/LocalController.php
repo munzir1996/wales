@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Local;
 use App\Http\Requests\StoreLocalRequest;
 use App\Http\Requests\UpdateLocalRequest;
+use App\Models\State;
 
 class LocalController extends Controller
 {
@@ -15,7 +16,11 @@ class LocalController extends Controller
      */
     public function index()
     {
-        //
+        $locals = Local::all();
+
+        return view('locals.index', [
+            'locals' => $locals,
+        ]);
     }
 
     /**
@@ -25,7 +30,11 @@ class LocalController extends Controller
      */
     public function create()
     {
-        //
+        $states = State::all();
+
+        return view('locals.create', [
+            'states' => $states,
+        ]);
     }
 
     /**
@@ -42,6 +51,10 @@ class LocalController extends Controller
             'name' => $data['name'],
             'state_id' => $data['state_id'],
         ]);
+
+        session()->flash('success', 'تم الأضافة');
+
+        return redirect()->route('locals.create');
     }
 
     /**
@@ -63,7 +76,12 @@ class LocalController extends Controller
      */
     public function edit(Local $local)
     {
-        //
+        $states = State::all();
+
+        return view('locals.edit', [
+            'local' => $local,
+            'states' => $states,
+        ]);
     }
 
     /**
@@ -81,6 +99,10 @@ class LocalController extends Controller
             'name' => $data['name'],
             'state_id' => $data['state_id'],
         ]);
+
+        session()->flash('success', 'تم التعديل');
+
+        return redirect()->route('locals.edit', $local->id);
     }
 
     /**
@@ -92,5 +114,9 @@ class LocalController extends Controller
     public function destroy(Local $local)
     {
         $local->delete();
+
+        session()->flash('success', 'تم الحذف');
+
+        return redirect()->route('locals.index');
     }
 }

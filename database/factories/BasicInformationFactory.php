@@ -27,7 +27,7 @@ class BasicInformationFactory extends Factory
             'state_id' => State::factory()->create()->id,
             'local_id' => Local::factory()->create()->id,
             'region_id' => Region::factory()->create()->id,
-            'project_manager_id' => ProjectManager::factory()->create()->id,
+            // 'project_manager_id' => ProjectManager::factory()->create()->id,
         ];
     }
 }

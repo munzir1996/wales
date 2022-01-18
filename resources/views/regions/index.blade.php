@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @push('title')
-الولايات
+المناطق
 @endpush
 @push('breadcrumb')
     <a href="#" class="text-gray-600 dark:text-gray-200 hover:underline">
-        الولاية
+        المنطقه
     </a>
 
     {{-- <span class="mx-1 text-gray-500 dark:text-gray-300">
@@ -25,9 +25,9 @@
 <div class="mt-6">
     <div class="p-4 bg-white rounded-lg shadow-sm xl:p-8">
         <div class="space-y-3 sm:flex sm:items-start sm:space-y-0 sm:justify-between">
-            <h2 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">الولايات</h2>
+            <h2 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">المناطق</h2>
 
-            <a href="{{route('states.create')}}"
+            <a href="{{route('regions.create')}}"
                 class="flex items-center justify-center px-3 py-2 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd"
@@ -35,7 +35,7 @@
                         clip-rule="evenodd"></path>
                 </svg>
 
-                <span>أضافة ولاية</span>
+                <span>أضافة منطقه</span>
             </a>
         </div>
 
@@ -56,25 +56,34 @@
                                     </th>
 
                                     <th scope="col"
+                                        class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                        المحلية
+                                    </th>
+
+                                    <th scope="col"
                                         class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
                                     </th>
                                 </tr>
                             </thead>
 
                             <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach ($states as $state)
+                                @foreach ($regions as $region)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        {{$state->id}}
+                                        {{$region->id}}
                                     </td>
 
                                     <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$state->name}}
+                                        {{$region->name}}
+                                    </td>
+
+                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
+                                        {{$region->local->name}}
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center space-x-4">
-                                            <a href="{{route('states.edit', $state->id)}}" class="text-gray-500 focus:outline-none hover:text-indigo-500">
+                                            <a href="{{route('regions.edit', $region->id)}}" class="text-gray-500 focus:outline-none hover:text-indigo-500">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -83,7 +92,7 @@
                                                     </path>
                                                 </svg>
                                             </a>
-                                            <form action="{{route('states.destroy', $state->id)}}" method="post">
+                                            <form action="{{route('regions.destroy', $region->id)}}" method="post">
                                                 @csrf {{ method_field('DELETE') }}
                                                 <button class="text-gray-500 focus:outline-none hover:text-indigo-500">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
