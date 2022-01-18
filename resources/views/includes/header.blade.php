@@ -7,11 +7,11 @@
                 </svg>
             </button>
 
-            @include('includes.search')
+            {{-- @include('includes.search') --}}
         </div>
 
         <div class="flex items-center space-x-2 sm:space-x-4">
-            <div x-data="{ dropdownOpen: false }" class="relative inline-block">
+            {{-- <div x-data="{ dropdownOpen: false }" class="relative inline-block">
                 <button @click="dropdownOpen = ! dropdownOpen" class="relative z-10 block text-gray-700 focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
@@ -48,11 +48,11 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div x-data="{ dropdownOpen: false }" class="relative inline-block">
                 <button @click="dropdownOpen = ! dropdownOpen" class="relative z-10 flex items-center flex-shrink-0 text-sm text-gray-600 focus:outline-none">
-                    <img class="flex-shrink-0 object-cover w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="john avatar">
+                    {{Auth::user()->name}}
                 </button>
 
                 <div class="absolute left-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl"
@@ -67,10 +67,9 @@
                     @click.away="dropdownOpen = false"
                 >
                     <a href="#" class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                        <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="john avatar">
                         <div class="mx-1">
-                            <h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200">John Doe</h1>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">johndoe@example.com</p>
+                            <h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200">{{Auth::user()->name}}</h1>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">{{Auth::user()->email}}</p>
                         </div>
                     </a>
 
@@ -80,23 +79,13 @@
                         Profile
                     </a>
 
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Team
+                    <a href="{{route('logout')}}" class="block px-4 py-2 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        تسجيل خروج
                     </a>
-
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Settings
-                    </a>
-
-                    <hr class="border-gray-200 dark:border-gray-700 ">
-
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Help
-                    </a>
-
-                    <a href="/sign-in" class="block px-4 py-2 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                        Sign Out
-                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                 </div>
             </div>
         </div>
