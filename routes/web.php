@@ -34,10 +34,11 @@ Route::prefix('/')->middleware(['auth'])->group(function () {
 
         $infos=BasicInformation::get()->take(4);
     
-
         return view('dashboard',compact('user','basic','infos'));
     })->name('dashboard');
     Route::resource('/states', StateController::class);
+    Route::resource('/users', UserController::class);
+
     Route::get('states/locals/{state}', [StateController::class, 'getLocals']);
     Route::resource('/locals', LocalController::class);
     Route::get('locals/regions/{local}', [LocalController::class, 'getRegions']);
