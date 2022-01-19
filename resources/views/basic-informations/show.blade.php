@@ -7,14 +7,6 @@
     <a href="#" class="text-gray-600 dark:text-gray-200 hover:underline">
         الأبار
     </a>
-
-    {{-- <span class="mx-1 text-gray-500 dark:text-gray-300">
-        /
-    </span>
-
-    <a href="#" class="text-indigo-600 dark:text-gray-200 hover:underline">
-        Tables
-    </a> --}}
 @endpush
 @section('body')
 

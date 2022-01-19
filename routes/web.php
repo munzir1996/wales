@@ -7,6 +7,8 @@ use App\Http\Controllers\RegionController;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\WellController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use App\Models\BasicInformation;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/')->middleware(['auth'])->group(function () {
     Route::get('/', function () {
-        return view('dashboard');
+
+        $user=User::count();
+
+        $basic=BasicInformation::count();
+
+        $infos=BasicInformation::get()->take(4);
+    
+
+        return view('dashboard',compact('user','basic','infos'));
     })->name('dashboard');
     Route::resource('/states', StateController::class);
     Route::get('states/locals/{state}', [StateController::class, 'getLocals']);
