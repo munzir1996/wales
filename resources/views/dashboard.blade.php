@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @push('title')
-    Dashboard
+  Athrib
 @endpush
 @section('body')
     <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
         <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl">
+            &nbsp;
             <div>
                 <p class="font-medium text-gray-500">عدد المستخدمين </p>
 
@@ -25,8 +26,8 @@
                 </svg>
             </div>
         </div>
-
-        <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl">
+        &nbsp;
+        <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl "> 
             <div>
                 <p class="font-medium text-gray-500">عدد الأبار</p>
 
@@ -38,16 +39,16 @@
                 </div>
             </div>
 
-            <div class="p-2 text-white bg-indigo-500 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+            {{-- <div class="p-2 text-white bg-indigo-500 rounded-lg"> --}}
+                {{-- <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             </div>
-        </div>
+        </div> --}}
 
-        <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl">
+        {{-- <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl">
             <div>
                 <p class="font-medium text-gray-500">New Clients</p>
 
@@ -78,7 +79,7 @@
                         +8%
                     </span>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="p-2 text-white bg-indigo-500 rounded-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
@@ -129,6 +130,7 @@
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase">
                                             <span>مدير المشروع</span>
                                         </th>
+                                   
                                     </tr>
                                 </thead>
 
@@ -152,6 +154,7 @@
                                             <td class="px-6 py-4 text-gray-700 capitalize whitespace-nowrap">
                                                 {{ $info->project_manager }}
                                             </td>
+                                       
                                     </tr>
                                     @endforeach
                                    

@@ -5,9 +5,9 @@
         {{-- <svg class="w-8 h-8 text-indigo-500" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M100.392 153.699L103.562 145.775C104.357 143.51 106.78 142.258 109.087 142.922L151.019 155.51L195.894 82.2426L81.8265 49.6388L100.392 153.699ZM198.34 73.2313V29.7143L158.174 59.8275L198.34 73.2313ZM238.37 55.5709L207.396 30.2124V52.8539L238.37 55.5709ZM197.117 97.6388L163.109 153.337L193.811 144.009L197.117 97.6388ZM144.679 163.299L110.445 153.02C100.347 178.243 107.411 161.035 76.0755 235.118L144.679 163.299ZM72.4529 48.6879L0.76985 63.7671L86.8076 128.205L72.4529 48.6879ZM60.317 119.782L22.4151 91.3445L0.724568 108.099L60.317 119.782Z" fill="currentColor"/>
         </svg> --}}
-      <img src="public/images/logoathrib.png" alt="images">
+      <img src="{{asset('assets/images/logoathrib.png')}}" alt="images" style="width:200px;height:200px;">
 
-        <span class="font-medium text-gray-600 uppercase">Meraki UI</span>
+     
     </div>
 
     <hr class="my-6 border-gray-100">
@@ -77,6 +77,15 @@
                 </svg>
 
                 <span class="font-medium capitalize">الأبار</span>
+            </a>
+
+            <a href="{{route('basic-informations.index')}}" class="flex items-center px-4 py-2 space-x-3 {{ Request::is('basic-informations*') ? 'text-gray-600 bg-gray-200' : 'text-gray-500 hover:text-gray-600 hover:bg-gray-100' }} transition-colors duration-300 transform rounded-lg bg-opacity-40">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                </svg>
+
+                <span class="font-medium capitalize">المستخدمين</span>
             </a>
 
         </div>
