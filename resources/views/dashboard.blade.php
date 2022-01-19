@@ -4,9 +4,8 @@
   Athrib
 @endpush
 @section('body')
-    <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+    <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-2">
         <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl">
-            &nbsp;
             <div>
                 <p class="font-medium text-gray-500">عدد المستخدمين </p>
 
@@ -26,7 +25,7 @@
                 </svg>
             </div>
         </div>
-        &nbsp;
+
         <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl "> 
             <div>
                 <p class="font-medium text-gray-500">عدد الأبار</p>
@@ -39,48 +38,6 @@
                 </div>
             </div>
 
-            {{-- <div class="p-2 text-white bg-indigo-500 rounded-lg"> --}}
-                {{-- <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-            </div>
-        </div> --}}
-
-        {{-- <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl">
-            <div>
-                <p class="font-medium text-gray-500">New Clients</p>
-
-                <div class="flex items-end space-x-2">
-                    <h2 class="mt-1 text-2xl font-medium text-gray-800">+3,052</h2>
-                    <span class="text-red-500">
-                        -14%
-                    </span>
-                </div>
-            </div>
-
-            <div class="p-2 text-white bg-indigo-500 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-            </div>
-        </div>
-
-        <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl">
-            <div>
-                <p class="font-medium text-gray-500">Total Sales</p>
-
-                <div class="flex items-end space-x-2">
-                    <h2 class="mt-1 text-2xl font-medium text-gray-800">$89,000</h2>
-                    <span class="text-indigo-500">
-                        +8%
-                    </span>
-                </div>
-            </div> --}}
-
             <div class="p-2 text-white bg-indigo-500 rounded-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -91,7 +48,7 @@
         </div>
     </section>
 
-    <section class="mt-6 space-y-6 xl:flex xl:space-x-6 xl:space-y-0">
+    <section class="mt-6 space-y-6 xl:flex xl:space-y-0">
         <div class="w-full p-4 bg-white rounded-lg shadow-sm xl:w-2/3 xl:p-6">
             <h2 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">اخر المشاريع </h2>
 
@@ -115,19 +72,19 @@
                                     <tr>
                                         
                                         <th scope="col"
-                                            class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-500 uppercase">
                                             <span>الجهه المالكه</span>
                                         </th>
                                         <th scope="col"
-                                            class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-500 uppercase">
                                             <span>الجهه الاستشاريه</span>
                                         </th>
                                         <th scope="col"
-                                            class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-500 uppercase">
                                             <span>الجهه الممولة</span>
                                         </th>
                                         <th scope="col"
-                                            class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-500 uppercase">
                                             <span>مدير المشروع</span>
                                         </th>
                                    
@@ -166,7 +123,7 @@
             </div>
         </div>
 
-        <div class="w-full p-4 bg-white rounded-lg shadow-sm xl:w-1/3 xl:p-6">
+        <div class="w-full p-4 mr-6 bg-white rounded-lg shadow-sm xl:w-1/3 xl:p-6">
             <h2 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">Orders overview</h2>
 
             <p class="mt-2 text-gray-500">
@@ -177,7 +134,7 @@
                 <ul class="-mb-8">
                     <li>
                         <div class="relative pb-8">
-                            <span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+                            <span class="absolute top-4 right-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
                             <div class="relative flex space-x-3">
                                 <div>
                                     <span
@@ -201,7 +158,7 @@
 
                     <li>
                         <div class="relative pb-8">
-                            <span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+                            <span class="absolute top-4 right-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
                             <div class="relative flex space-x-3">
                                 <div>
                                     <span
@@ -226,7 +183,7 @@
 
                     <li>
                         <div class="relative pb-8">
-                            <span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+                            <span class="absolute top-4 right-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
                             <div class="relative flex space-x-3">
                                 <div>
                                     <span

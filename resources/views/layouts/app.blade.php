@@ -21,9 +21,9 @@
 
         @include('includes.head')
     </head>
-    <body dir="rtl">
+    <body dir="rtl" class="overflow-hidden">
 
-        <div x-data="{ sidebarOpen: false }" class="relative flex h-screen text-gray-800 bg-white font-roboto">
+        <div x-data="{ sidebarOpen: false }" class="relative flex h-screen overflow-hidden text-gray-800 bg-white font-roboto">
             @include('includes.sidebar')
 
             <div class="flex flex-col flex-1 overflow-hidden bg-gray-100">
