@@ -79,7 +79,7 @@
                 <span class="font-medium capitalize mx-3">الأبار</span>
             </a>
 
-            <a href="{{route('users.index')}}" class="flex items-center px-4 py-2 {{ Request::is('/users') ? 'text-gray-600 bg-gray-200' : 'text-gray-500 hover:text-gray-600 hover:bg-gray-100' }} transition-colors duration-300 transform rounded-lg bg-opacity-40">
+            <a href="{{route('users.index')}}" class="flex items-center px-4 py-2 {{ Request::is('users*') ? 'text-gray-600 bg-gray-200' : 'text-gray-500 hover:text-gray-600 hover:bg-gray-100' }} transition-colors duration-300 transform rounded-lg bg-opacity-40">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>

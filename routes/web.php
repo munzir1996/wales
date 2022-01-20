@@ -36,6 +36,7 @@ Route::prefix('/')->middleware(['auth'])->group(function () {
     
         return view('dashboard',compact('user','basic','infos'));
     })->name('dashboard');
+
     Route::resource('/states', StateController::class);
     Route::resource('/users', UserController::class);
 
