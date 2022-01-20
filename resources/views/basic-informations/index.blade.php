@@ -7,14 +7,9 @@
     <a href="#" class="text-gray-600 dark:text-gray-200 hover:underline">
         الأبار
     </a>
-
-    {{-- <span class="mx-1 text-gray-500 dark:text-gray-300">
-        /
-    </span>
-
-    <a href="#" class="text-indigo-600 dark:text-gray-200 hover:underline">
-        Tables
-    </a> --}}
+@endpush
+@push('css')
+<link rel="stylesheet" href="{{asset('vendor/css/datatables.min.css')}}">
 @endpush
 @section('body')
 
@@ -43,7 +38,7 @@
             <div class="-my-2 overflow-x-auto xl:-mx-8">
                 <div class="inline-block min-w-full py-2 align-right sm:px-6 lg:px-8">
                     <div class="overflow-hidden">
-                        <table class="min-w-full divide-y divide-gray-200">
+                        <table class="min-w-full divide-y divide-gray-200" id="basic-informations-table">
                             <thead>
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-right">
@@ -140,3 +135,26 @@
 </div>
 
 @endsection
+
+
+@push('js')
+<script src="{{ asset('vendor/js/datatables.min.js') }}"></script>
+{{-- <script src="{{ asset('vendor/js/datatables.bootstrap.js') }}"></script> --}}
+<script>
+    //Datatable
+    $(document).ready(function () {
+        $('#basic-informations-table').DataTable({
+            "order": [[ 0, "desc" ]],
+            "language": {
+                "emptyTable": "لا توجد بيانات متوفرة في الجدول",
+                "search": "بحث:",
+                "lengthMenu": "_MENU_ السجلات",
+                "sInfo": "إظهار الصفحة _PAGE_ من _PAGES_",
+                "sInfoEmpty": "إظهار 0 إلى 0 من 0 السجلات",
+                "zeroRecords": "لم يتم العثور على سجلات مطابقة",
+                "infoFiltered": "(تمت تصفيته من إجمالي السجلات _MAX_)",
+            }
+        });
+    });
+</script>
+@endpush

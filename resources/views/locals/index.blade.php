@@ -7,14 +7,9 @@
     <a href="#" class="text-gray-600 dark:text-gray-200 hover:underline">
         المحلية
     </a>
-
-    {{-- <span class="mx-1 text-gray-500 dark:text-gray-300">
-        /
-    </span>
-
-    <a href="#" class="text-indigo-600 dark:text-gray-200 hover:underline">
-        Tables
-    </a> --}}
+@endpush
+@push('css')
+<link rel="stylesheet" href="{{asset('vendor/css/datatables.min.css')}}">
 @endpush
 @section('body')
 
@@ -43,7 +38,7 @@
             <div class="-my-2 overflow-x-auto xl:-mx-8">
                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                     <div class="overflow-hidden">
-                        <table class="min-w-full divide-y divide-gray-200">
+                        <table class="min-w-full divide-y divide-gray-200" id="locals-table">
                             <thead>
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-right">
@@ -112,32 +107,6 @@
                             </tbody>
                         </table>
 
-                        <div class="w-full mt-8 bg-white dark:bg-gray-800">
-                            <div
-                                class="container flex flex-col items-center mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 ">
-                                <div class="-mx-2">
-                                    <a href="#"
-                                        class="inline-flex items-center justify-center px-4 py-1 mx-2 text-gray-700 transition-colors duration-200 transform bg-gray-100 rounded-lg dark:text-white dark:bg-gray-700">
-                                        1
-                                    </a>
-
-                                    <a href="#"
-                                        class="inline-flex items-center justify-center px-4 py-1 mx-2 text-gray-700 transition-colors duration-200 transform rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                                        2
-                                    </a>
-
-                                    <a href="#"
-                                        class="inline-flex items-center justify-center px-4 py-1 mx-2 text-gray-700 transition-colors duration-200 transform rounded-lg hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                                        3
-                                    </a>
-                                </div>
-
-                                <div class="text-gray-500 dark:text-gray-400">
-                                    <span class="font-medium text-gray-700 dark:text-gray-100">1 - 25</span> of 77
-                                    records
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -147,3 +116,25 @@
 </div>
 
 @endsection
+
+
+@push('js')
+<script src="{{ asset('vendor/js/datatables.min.js') }}"></script>
+{{-- <script src="{{ asset('vendor/js/datatables.bootstrap.js') }}"></script> --}}
+<script>
+    //Datatable
+    $(document).ready(function () {
+        $('#locals-table').DataTable({
+            "language": {
+                "emptyTable": "لا توجد بيانات متوفرة في الجدول",
+                "search": "بحث:",
+                "lengthMenu": "_MENU_ السجلات",
+                "sInfo": "إظهار الصفحة _PAGE_ من _PAGES_",
+                "sInfoEmpty": "إظهار 0 إلى 0 من 0 السجلات",
+                "zeroRecords": "لم يتم العثور على سجلات مطابقة",
+                "infoFiltered": "(تمت تصفيته من إجمالي السجلات _MAX_)",
+            }
+        });
+    });
+</script>
+@endpush
