@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use App\Models\User;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -18,6 +18,10 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             WellSeeder::class,
             RegionSeeder::class,
+            RolesAndPermissionsSeeder::class, 
         ]);
+
+        $user = User::first(); 
+        $user->givePermissionTo('admin'); 
     }
 }

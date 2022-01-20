@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\StoreUserRequest;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+       $this->middleware('permission:admin')->except('index');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +33,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $permissions = Permission::all();
+        return view('users.create', compact('permissions'));
     }
 
     /**
@@ -40,13 +46,13 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $data =  $request->validated();
-
-        User::create([
+     
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' =>  Hash::make($data['password']),
         ]);
-
+        $user->syncPermissions($request->permissions);
         session()->flash('success', 'تم الأضافة');
 
         return redirect()->route('users.index');
@@ -71,7 +77,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        $permissions = Permission::all();
+        return view('users.edit', compact('user', 'permissions'));
     }
 
     /**
@@ -83,13 +90,16 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        $data = $request->validated();
-       $encrutp= $data['user'];
-        $user->update([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $request->validated();
+
+        $user->name = $request->name;
+
+        $user->email = $request->email;
+        if ($request->has('password')) {
+            $user->password =  Hash::make($request->password);
+        }
+
+        $user->syncPermissions($request->permissions);
 
         session()->flash('success', 'تم التعديل ');
         return redirect()->route('users.index');

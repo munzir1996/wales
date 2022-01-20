@@ -68,8 +68,8 @@
                 >
                     <a href="#" class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                         <div class="mx-1">
-                            <h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200">{{Auth::user()->name}}</h1>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">{{Auth::user()->email}}</p>
+                            <h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200"> إسم المستخدم</h1>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">{{Auth::user()->name}}</p>
                         </div>
                     </a>
 

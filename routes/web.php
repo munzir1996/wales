@@ -9,8 +9,7 @@ use App\Http\Controllers\StateController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WellController;
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
-use App\Models\BasicInformation;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,11 +28,18 @@ use App\Models\BasicInformation;
 
 Route::prefix('/')->middleware(['auth'])->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
-    Route::resource('/states', StateController::class);
-    Route::resource('/users', UserController::class);
+
+
+      
+  
 
     Route::get('states/locals/{state}', [StateController::class, 'getLocals']);
+    // Route::group(['middleware' => ['permission:admin']], function () {
     Route::resource('/locals', LocalController::class);
+    Route::resource('/users', UserController::class);
+    Route::resource('/states', StateController::class);
+    Route::resource('/basic-informations', BasicInformationController::class)->parameter('basic_information', 'basicInformation');
+    // });
     Route::get('locals/regions/{local}', [LocalController::class, 'getRegions']);
     Route::resource('/regions', RegionController::class);
     Route::resource('/project-managers', ProjectManagerController::class)->parameter('project_manager', 'projectManager');
@@ -41,8 +47,8 @@ Route::prefix('/')->middleware(['auth'])->group(function () {
 
     Route::get('basic-informations/download/file/{media}', [BasicInformationController::class, 'downloadFile'])->name('basic_informations.downloadfile');
     Route::get('basic-informations/delete/file/{media}/{donorentity}', [BasicInformationController::class, 'deleteFile'])->name('basic_informations.deletefile');
-    Route::resource('/basic-informations', BasicInformationController::class)->parameter('basic_information', 'basicInformation');
+
 });
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

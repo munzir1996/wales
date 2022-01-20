@@ -13,6 +13,11 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class BasicInformationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:admin')->except('index');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -80,13 +85,13 @@ class BasicInformationController extends Controller
             'basic_information_id' => $basicInformation->id,
         ]);
 
-        $request->whenFilled('water_analysis_test_file', function ($input) use($basicInformation) {
+        $request->whenFilled('water_analysis_test_file', function ($input) use ($basicInformation) {
             $basicInformation->uploadFiles($input, 'water_analysis_test_file');
         });
-        $request->whenFilled('geophysical_study_file', function ($input) use($basicInformation) {
+        $request->whenFilled('geophysical_study_file', function ($input) use ($basicInformation) {
             $basicInformation->uploadFiles($input, 'geophysical_study_file');
         });
-        $request->whenFilled('full_well_details_file', function ($input) use($basicInformation) {
+        $request->whenFilled('full_well_details_file', function ($input) use ($basicInformation) {
             $basicInformation->uploadFiles($input, 'full_well_details_file');
         });
 
@@ -163,13 +168,13 @@ class BasicInformationController extends Controller
             'psd' => $data['psd'],
         ]);
 
-        $request->whenFilled('water_analysis_test_file', function ($input) use($basicInformation) {
+        $request->whenFilled('water_analysis_test_file', function ($input) use ($basicInformation) {
             $basicInformation->uploadFiles($input, 'water_analysis_test_file');
         });
-        $request->whenFilled('geophysical_study_file', function ($input) use($basicInformation) {
+        $request->whenFilled('geophysical_study_file', function ($input) use ($basicInformation) {
             $basicInformation->uploadFiles($input, 'geophysical_study_file');
         });
-        $request->whenFilled('full_well_details_file', function ($input) use($basicInformation) {
+        $request->whenFilled('full_well_details_file', function ($input) use ($basicInformation) {
             $basicInformation->uploadFiles($input, 'full_well_details_file');
         });
 

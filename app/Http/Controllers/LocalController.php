@@ -9,6 +9,10 @@ use App\Models\State;
 
 class LocalController extends Controller
 {
+    public function __construct()
+    {
+       $this->middleware('permission:admin')->except('index');
+    }
     /**
      * Display a listing of the resource.
      *
