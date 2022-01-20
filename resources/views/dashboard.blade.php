@@ -255,16 +255,13 @@
 
 @push('js')
 <script src="{{ asset('vendor/js/datatables.min.js') }}"></script>
+{{-- <script src="{{ asset('vendor/js/filterDropDown.min.js') }}"></script> --}}
 {{-- <script src="{{ asset('vendor/js/datatables.bootstrap.js') }}"></script> --}}
 <script>
     //Datatable
     $(document).ready(function () {
         $('#wells-table').DataTable({
             dom: 'Bfrtip',
-            "columnDefs": [ {
-                "targets": 0,
-                "searchable": false
-            }],
             "language": {
                 "emptyTable": "لا توجد بيانات متوفرة في الجدول",
                 "search": "بحث:",
