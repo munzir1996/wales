@@ -144,6 +144,7 @@
     //Datatable
     $(document).ready(function () {
         $('#basic-informations-table').DataTable({
+            dom: 'Bfrtip',
             "order": [[ 0, "desc" ]],
             "language": {
                 "emptyTable": "لا توجد بيانات متوفرة في الجدول",
@@ -153,7 +154,10 @@
                 "sInfoEmpty": "إظهار 0 إلى 0 من 0 السجلات",
                 "zeroRecords": "لم يتم العثور على سجلات مطابقة",
                 "infoFiltered": "(تمت تصفيته من إجمالي السجلات _MAX_)",
-            }
+            },
+            buttons: [
+                'excel', 'pdf'
+            ],
         });
     });
 </script>
