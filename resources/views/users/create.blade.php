@@ -4,8 +4,8 @@
     المستخدمين
 @endpush
 @push('breadcrumb')
-<a href="{{route('states.index')}}" class="text-indigo-600 dark:text-gray-200 hover:underline">
-    الولاية
+<a href="{{route('users.index')}}" class="text-indigo-600 dark:text-gray-200 hover:underline">
+    المستخدمين
 </a>
 <span class="mx-1 text-gray-500 dark:text-gray-300">
     /
@@ -17,7 +17,7 @@
 @section('body')
 
 <div class="w-full p-4 bg-white rounded-lg xl:p-6">
-    <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">إنشاء ولاية جديدة</h1>
+    <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">إنشاء مستخدم جديد</h1>
 
     <form action="{{route('users.store')}}" class="mt-6 space-y-5" method="POST">
         @csrf

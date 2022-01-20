@@ -25,7 +25,7 @@
 <div class="mt-6">
     <div class="p-4 bg-white rounded-lg shadow-sm xl:p-8">
         <div class="space-y-3 sm:flex sm:items-start sm:space-y-0 sm:justify-between">
-            <h2 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">الولايات</h2>
+            <h2 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">المستخدمين</h2>
 
             <a href="{{route('users.create')}}"
                 class="flex items-center justify-center px-3 py-2 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
@@ -57,6 +57,7 @@
 
                                     <th scope="col"
                                         class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                        البريد الألكتروني
                                     </th>
                                 </tr>
                             </thead>
@@ -77,7 +78,7 @@
 
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center space-x-4">
-                                            <a href="{{route('user.edit', $state->id)}}" class="text-gray-500 focus:outline-none hover:text-indigo-500">
+                                            <a href="{{route('users.edit', $user->id)}}" class="text-gray-500 focus:outline-none hover:text-indigo-500">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -107,7 +108,7 @@
                         </table>
 
                         <div class="w-full mt-8 bg-white dark:bg-gray-800">
-                            <div
+                            {{-- <div
                                 class="container flex flex-col items-center mx-auto space-y-6 sm:flex-row sm:justify-between sm:space-y-0 ">
                                 <div class="-mx-2">
                                     <a href="#"
@@ -131,7 +132,7 @@
                                     records
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

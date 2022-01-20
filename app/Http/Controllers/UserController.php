@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
 {
@@ -13,8 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users=User::all();
-        return view('users.index',compact('users'));
+        $users = User::all();
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -33,9 +36,19 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        $data =  $request->validated();
+
+        User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
+        ]);
+
+        session()->flash('success', 'تم الأضافة');
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -55,9 +68,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -67,9 +80,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $data = $request->validated();
+
+        $user->update([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
+        ]);
+
+        session()->flash('success', 'تم التعديل ');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -78,8 +100,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        
+        session()->flash('success', 'تم الحذف');
+
+        return redirect()->route('users.index');
     }
 }

@@ -10,7 +10,7 @@
                 <p class="font-medium text-gray-500">عدد المستخدمين </p>
 
                 <div class="flex items-end space-x-2">
-                    <h2 class="mt-1 text-2xl font-medium text-gray-800">{{ $user }}</h2>
+                    <h2 class="mt-1 text-2xl font-medium text-gray-800">{{ $userCount }}</h2>
                     <span class="text-indigo-500">
 
                     </span>
@@ -26,12 +26,12 @@
             </div>
         </div>
 
-        <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl "> 
+        <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl ">
             <div>
                 <p class="font-medium text-gray-500">عدد الأبار</p>
 
                 <div class="flex items-end space-x-2">
-                    <h2 class="mt-1 text-2xl font-medium text-gray-800">{{ $basic }}</h2>
+                    <h2 class="mt-1 text-2xl font-medium text-gray-800">{{ $wellCount }}</h2>
                     <span class="text-indigo-500">
 
                     </span>
@@ -49,7 +49,7 @@
     </section>
 
     <section class="mt-6 space-y-6 xl:flex xl:space-y-0">
-        <div class="w-full p-4 bg-white rounded-lg shadow-sm xl:w-2/3 xl:p-6">
+        <div class="w-full p-4 bg-white rounded-lg shadow-sm xl:p-6"> {{-- xl:w-2/3 --}}
             <h2 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">اخر المشاريع </h2>
 
             <p class="flex items-center mt-2 space-x-2 text-gray-500">
@@ -70,7 +70,7 @@
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr>
-                                        
+
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-500 uppercase">
                                             <span>الجهه المالكه</span>
@@ -87,34 +87,48 @@
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-500 uppercase">
                                             <span>مدير المشروع</span>
                                         </th>
-                                   
+                                        <th scope="col"
+                                            class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-500 uppercase">
+                                            <span>تاريخ التنفيذ</span>
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                        </th>
+
                                     </tr>
                                 </thead>
 
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                    <tr>
-                                        @foreach ($infos as $info)
+                                    @foreach ($basicInformations as $basicInformation)
+                                        <tr>
                                             <td class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap">
-                                                {{ $info->owner }}
+                                                {{ $basicInformation->owner }}
                                             </td>
-
-
-
                                             <td class="px-6 py-4 font-medium whitespace-nowrap">
-                                                {{ $info->advisor }}
+                                                {{ $basicInformation->advisor }}
                                             </td>
-
                                             <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                                {{ $info->funded }}
+                                                {{ $basicInformation->funded }}
                                             </td>
-
                                             <td class="px-6 py-4 text-gray-700 capitalize whitespace-nowrap">
-                                                {{ $info->project_manager }}
+                                                {{ $basicInformation->project_manager }}
                                             </td>
-                                       
-                                    </tr>
+                                            <td class="px-6 py-4 text-gray-700 capitalize whitespace-nowrap">
+                                                {{ $basicInformation->start_date }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center space-x-4">
+                                                    <a href="{{route('basic-informations.show', $basicInformation->id)}}" class="text-gray-500 focus:outline-none hover:text-indigo-500">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     @endforeach
-                                   
+
                                 </tbody>
                             </table>
                         </div>
@@ -123,7 +137,7 @@
             </div>
         </div>
 
-        <div class="w-full p-4 mr-6 bg-white rounded-lg shadow-sm xl:w-1/3 xl:p-6">
+        {{-- <div class="w-full p-4 mr-6 bg-white rounded-lg shadow-sm xl:w-1/3 xl:p-6">
             <h2 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">Orders overview</h2>
 
             <p class="mt-2 text-gray-500">
@@ -232,6 +246,6 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> --}}
     </section>
 @endsection
