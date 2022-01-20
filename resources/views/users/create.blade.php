@@ -53,7 +53,8 @@
                 @enderror
             </div>
             <div dir="ltr">
-                <p>الصلاحيه:</p>
+                <p class="mb-4 px-20"> -: الصلاحيات</p>
+                
                 @foreach ($permissions as $permission)
                     <input name="permissions[]" type="checkbox" value="{{ $permission->name }}"
                         class="w-5 h-5 text-green-500 border-black-300 rounded-md focus:border-black-500 focus:ring focus:ring-green-300 focus:ring-opacity-40">
