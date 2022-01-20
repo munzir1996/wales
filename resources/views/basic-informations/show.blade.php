@@ -207,7 +207,6 @@
                                 </th>
                             </tr>
                         </thead>
-                        {{dd($basicInformation->getMedia('water_analysis_test_file'))}}
                         <tbody class="bg-white divide-y divide-gray-200">
                             @foreach ($basicInformation->getMedia('water_analysis_test_file') as $media)
                             <tr>
