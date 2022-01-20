@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\BasicInformationController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\ProjectManagerController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\StateController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WellController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -26,16 +28,17 @@ use App\Models\BasicInformation;
 // });
 
 Route::prefix('/')->middleware(['auth'])->group(function () {
-    Route::get('/', function () {
+    Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+    // function () {
 
-        $user=User::count();
+    //     $user=User::count();
 
-        $basic=BasicInformation::count();
+    //     $basic=BasicInformation::count();
 
-        $infos=BasicInformation::get()->take(4);
-    
-        return view('dashboard',compact('user','basic','infos'));
-    })->name('dashboard');
+    //     $infos=BasicInformation::get()->take(4);
+
+    //     return view('dashboard',compact('user','basic','infos'));
+    // })
     Route::resource('/states', StateController::class);
     Route::resource('/users', UserController::class);
 

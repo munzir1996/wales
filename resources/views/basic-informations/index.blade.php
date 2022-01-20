@@ -41,7 +41,7 @@
 
         <div class="flex flex-col mt-8">
             <div class="-my-2 overflow-x-auto xl:-mx-8">
-                <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                <div class="inline-block min-w-full py-2 align-right sm:px-6 lg:px-8">
                     <div class="overflow-hidden">
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead>
@@ -49,25 +49,22 @@
                                     <th scope="col" class="px-6 py-3 text-right">
                                         #
                                     </th>
-                         
                                     <th scope="col"
-                                        class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        الجهة المالكة
+                                        class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                        الولاية
                                     </th>
                                     <th scope="col"
-                                        class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        الجهة الأستشارية
+                                        class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                        المحلية
                                     </th>
                                     <th scope="col"
-                                        class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        الجهة الممولة
+                                        class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                        المنطقة
                                     </th>
                                     <th scope="col"
-                                        class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        مدير المشروع
+                                        class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                        تاريخ التنفيذ
                                     </th>
-                   
-
                                     <th scope="col"
                                         class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
                                     </th>
@@ -80,22 +77,22 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         {{$basicInformation->id}}
                                     </td>
-                           
+
                                     <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->owner}}
+                                        {{$basicInformation->state->name}}
                                     </td>
                                     <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->advisor}}
+                                        {{$basicInformation->local->name}}
                                     </td>
                                     <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->funded}}
+                                        {{$basicInformation->region->name}}
                                     </td>
                                     <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->project_manager}}
+                                        {{$basicInformation->start_date}}
                                     </td>
-                       
+
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center space-x-4">
+                                        <div class="flex items-center space-x-2">
                                             <a href="{{route('basic-informations.show', $basicInformation->id)}}" class="text-gray-500 focus:outline-none hover:text-indigo-500">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -132,7 +129,7 @@
                         </table>
 
                         <div class="w-full mt-8 bg-white dark:bg-gray-800">
-                        
+
                         </div>
                     </div>
                 </div>

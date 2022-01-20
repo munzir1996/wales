@@ -1,136 +1,196 @@
 @extends('layouts.app')
 
 @push('title')
-    بيانات البئر
+الأبار
 @endpush
 @push('breadcrumb')
-    <a href="#" class="text-gray-600 dark:text-gray-200 hover:underline">
-        الأبار
-    </a>
+<a href="{{route('basic-informations.index')}}" class="text-indigo-600 dark:text-gray-200 hover:underline">
+    الأبار
+</a>
+<span class="mx-1 text-gray-500 dark:text-gray-300">
+    /
+</span>
+<a href="#" class="text-gray-600 dark:text-gray-200 hover:underline">
+    التفاصيل
+</a>
 @endpush
 @section('body')
+<div class="w-full p-4 mt-8 bg-white rounded-lg xl:p-6">
+    <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">البيانات الأساسية</h1>
 
-<div>
+    <form action="{{route('basic-informations.store')}}" class="mt-6 space-y-5" method="POST">
+        @csrf
+        <div class="grid grid-cols-3 gap-8 mt-6">
+            <div>
+                <label for="region" name="state_id"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">الولاية</label>
+                <input type="text" name="state_id" placeholder="الولاية" value="{{$basicInformation->state->name}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
 
-</div>
+            <div>
+                <label for="region" name="local_id"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">المحلية</label>
+                <input type="text" name="local_id" placeholder="المحلية" value="{{$basicInformation->local->name}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
 
-<div class="mt-6">
-    <div class="p-4 bg-white rounded-lg shadow-sm xl:p-8">
-
-
-        <div class="flex flex-col mt-8">
-            <div class="-my-2 overflow-x-auto xl:-mx-8">
-                <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                    <div class="overflow-hidden">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="px-6 py-3 text-right">
-                                        #
-                                    </th>
-                         
-                                    <th scope="col"
-                                    class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                    الولاية
-                                </th>
-                                <th scope="col"
-                                    class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                    المحلية
-                                </th>
-                                <th scope="col"
-                                    class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                    المنطقة
-                                </th>
-                                <th scope="col"
-                                    class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                    تاريخ التنفيذ
-                                </th>
-                                <th scope="col"
-                                    class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                    مدة التنفيذ
-                                </th>
-                                <th scope="col"
-                                    class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                    الجهة المالكة
-                                </th>
-                                <th scope="col"
-                                    class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                    الجهة الأستشارية
-                                </th>
-                                <th scope="col"
-                                    class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                    الجهة الممولة
-                                </th>
-                                <th scope="col"
-                                    class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                    مدير المشروع
-                                </th>
-                                <th scope="col"
-                                    class="px-6 py-3 pr-16 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                    التكلفة الكلية
-                                </th>
-                   
-
-                                    <th scope="col"
-                                        class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tbody class="bg-white divide-y divide-gray-200">
-
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        {{$basicInformation->id}}
-                                    </td>
-
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->state->name}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->local->name}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->region->name}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->start_date}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->execution_time}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->owner}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->advisor}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->funded}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->project_manager}}
-                                    </td>
-                                    <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
-                                        {{$basicInformation->total_cost}}
-                                    </td>
-                       
-                             
-                                </tr>
-                            
-
-                            </tbody>
-                        </table>
-
-                        <div class="w-full mt-8 bg-white dark:bg-gray-800">
-                        
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <label for="region" name="region_id"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">المنطقه</label>
+                <input type="text" name="region_id" placeholder="المنطقه" value="{{$basicInformation->region->name}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
             </div>
         </div>
-    </div>
 
+        <div class="grid grid-cols-2 gap-8 mt-6">
+            <div>
+                <label for="region" name="start_date"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">تاريخ التنفيذ</label>
+                <input type="date" name="start_date" placeholder="تاريخ التنفيذ" value="{{$basicInformation->start_date}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+            <div>
+                <label for="region" name="execution_time"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">مدة التنفيذ</label>
+                <input type="number" min="1" name="execution_time" placeholder="مدة التنفيذ" value="{{$basicInformation->execution_time}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 mt-6">
+            <div>
+                <label for="region" name="owner"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">الجهة المالكة</label>
+                <input type="text" name="owner" placeholder="الجهة المالكة" value="{{$basicInformation->owner}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+            <div>
+                <label for="region" name="advisor"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">الجهة الأستشارية</label>
+                <input type="text" name="advisor" placeholder="الجهة الأستشارية" value="{{$basicInformation->advisor}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 mt-6">
+            <div>
+                <label for="region" name="funded"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">الجهة الممولة</label>
+                <input type="text" name="funded" placeholder="الجهة الممولة" value="{{$basicInformation->funded}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+            <div>
+                <label for="region" name="project_manager"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">مدير المشروع</label>
+                <input type="text" name="project_manager" placeholder="مدير المشروع" value="{{$basicInformation->project_manager}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 mt-6">
+            <div>
+                <label for="region" name="total_cost"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">التكلفة الكلية</label>
+                <input type="number" name="total_cost" min="0.01" step="0.01" placeholder="التكلفة الكلية" value="{{$basicInformation->total_cost}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+        </div>
+
+        <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">بيانات الأبار</h1>
+
+        <div class="grid grid-cols-2 gap-8 mt-6">
+            <div>
+                <label for="region" name="longitude"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">خط الطول</label>
+                <input type="number" step="0.01" name="longitude" placeholder="خط الطول" value="{{$basicInformation->well->longitude}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+            <div>
+                <label for="region" name="latitude"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">خط العرض</label>
+                <input type="number" step="0.01" name="latitude" placeholder="خط العرض" value="{{$basicInformation->well->latitude}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 mt-6">
+            <div>
+                <label for="region" name="well_depth"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">عمق البئر</label>
+                <input type="number" min="0.01" step="0.01" name="well_depth" placeholder="عمق البئر" value="{{$basicInformation->well->well_depth}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+            <div>
+                <label for="region" name="packaging_depth"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">عمق التغليف</label>
+                <input type="number" min="0.01" step="0.01" name="packaging_depth" placeholder="عمق التغليف" value="{{$basicInformation->well->packaging_depth}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 mt-6">
+            <div>
+                <label for="region" name="swl"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">مستوي المياه الثابت (S.W.L)</label>
+                <input type="number" min="0.01" step="0.01" name="swl" placeholder="مستوي المياه الثابت (S.W.L)" value="{{$basicInformation->well->swl}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+            <div>
+                <label for="region" name="dwl"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">مستوي المياه المتحرك (D.W.L)</label>
+                <input type="number" min="0.01" step="0.01" name="dwl" placeholder="مستوي المياه المتحرك (D.W.L)" value="{{$basicInformation->well->dwl}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 mt-6">
+            <div>
+                <label for="region" name="swl"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">مستوي المياه الثابت (S.W.L)</label>
+                <input type="number" min="0.01" step="0.01" name="swl" placeholder="مستوي المياه الثابت (S.W.L)" value="{{$basicInformation->well->swl}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+            <div>
+                <label for="region" name="productivity"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">الإنتاجية</label>
+                <input type="number" min="0.01" step="0.01" name="productivity" placeholder="الإنتاجية" value="{{$basicInformation->well->productivity}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 mt-6">
+            <div>
+                <label for="region" name="psd"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">مستوي الإنزال (P.S.D)</label>
+                <input type="number" min="0.01" step="0.01" name="psd" placeholder="مستوي الإنزال (P.S.D)" value="{{$basicInformation->well->psd}}"
+                    class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border"
+                    disabled>
+                @error('psd')
+                <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
+
+    </form>
 </div>
 
 @endsection
