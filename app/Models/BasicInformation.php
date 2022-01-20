@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use App\Traits\FilesTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Dyrynda\Database\Support\CascadeSoftDeletes;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class BasicInformation extends Model
+class BasicInformation extends Model implements HasMedia
 {
-    use HasFactory, SoftDeletes, CascadeSoftDeletes;
+    use HasFactory, SoftDeletes, CascadeSoftDeletes, InteractsWithMedia;
 
     protected $guarded = [];
     protected $cascadeDeletes = ['well'];
@@ -34,6 +37,14 @@ class BasicInformation extends Model
         return $this->hasOne(Well::class);
     }
 
+    public function uploadFiles($files, $mediaCollection)
+    {
+        foreach ($files as $file) {
+            $this->addMedia($file)
+                ->preservingOriginal()
+                ->toMediaCollection($mediaCollection);
+        }
+    }
     // public function projectManager()
     // {
     //     return $this->belongsTo(ProjectManager::class);

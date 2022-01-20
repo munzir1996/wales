@@ -47,8 +47,11 @@ Route::prefix('/')->middleware(['auth'])->group(function () {
     Route::get('locals/regions/{local}', [LocalController::class, 'getRegions']);
     Route::resource('/regions', RegionController::class);
     Route::resource('/project-managers', ProjectManagerController::class)->parameter('project_manager', 'projectManager');
-    Route::resource('/basic-informations', BasicInformationController::class)->parameter('basic_information', 'basicInformation');
     Route::resource('/wells', WellController::class);
+
+    Route::get('basic-informations/download/file/{media}', [BasicInformationController::class, 'downloadFile'])->name('basic_informations.downloadfile');
+    Route::get('basic-informations/delete/file/{media}/{donorentity}', [BasicInformationController::class, 'deleteFile'])->name('basic_informations.deletefile');
+    Route::resource('/basic-informations', BasicInformationController::class)->parameter('basic_information', 'basicInformation');
 });
 
 

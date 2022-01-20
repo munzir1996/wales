@@ -18,7 +18,7 @@
 <div class="w-full p-4 mt-8 bg-white rounded-lg xl:p-6">
     <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">البيانات الأساسية</h1>
 
-    <form action="{{route('basic-informations.store')}}" class="mt-6 space-y-5" method="POST">
+    <form action="{{route('basic-informations.store')}}" class="mt-6 space-y-5" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="grid grid-cols-3 gap-8 mt-6"
             x-data="{ selectedState: null, selectedlocal: null, states: {{$states}},  locals: {{$locals}}, regions: {{$regions}} }">
@@ -257,6 +257,38 @@
                 @error('psd')
                 <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
                 @enderror
+            </div>
+        </div>
+        <div class="grid grid-cols-3 gap-8 mt-6">
+            <div x-data="{ files: null }">
+                <label for="region" name="psd"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">
+                    اختبار تحليل المياه
+                    <input type="file" name="water_analysis_test_file[]"
+                    class="border-2 border-gray-200 dark:text-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:focus:ring-opacity-40 p-3 w-full block rounded cursor-pointer my-2"
+                        x-on:change="files = Object.values($event.target.files)" multiple>
+                        <span x-text="files ? files.map(file => file.name).join(', ') : 'اختر عدة ملفات ...'"></span>
+                </label>
+            </div>
+            <div x-data="{ files: null }">
+                <label for="region" name="psd"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">
+                    الدراسة الجوفيزيائية
+                    <input type="file" name="geophysical_study_file[]"
+                    class="border-2 border-gray-200 dark:text-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:focus:ring-opacity-40 p-3 w-full block rounded cursor-pointer my-2"
+                        x-on:change="files = Object.values($event.target.files)" multiple>
+                        <span x-text="files ? files.map(file => file.name).join(', ') : 'اختر عدة ملفات ...'"></span>
+                </label>
+            </div>
+            <div x-data="{ files: null }">
+                <label for="region" name="psd"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">
+                    تفاصيل البئر كاملة
+                    <input type="file" name="full_well_details_file[]"
+                    class="border-2 border-gray-200 dark:text-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:focus:ring-opacity-40 p-3 w-full block rounded cursor-pointer my-2"
+                        x-on:change="files = Object.values($event.target.files)" multiple>
+                        <span x-text="files ? files.map(file => file.name).join(', ') : 'اختر عدة ملفات ...'"></span>
+                </label>
             </div>
         </div>
 

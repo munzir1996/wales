@@ -42,6 +42,9 @@ class UpdateBasicInformationRequest extends FormRequest
             'dwl' => 'required',
             'productivity' => 'required',
             'psd' => 'required',
+            'water_analysis_test_file' => 'sometimes',
+            'geophysical_study_file' => 'sometimes',
+            'full_well_details_file' => 'sometimes',
         ];
     }
 

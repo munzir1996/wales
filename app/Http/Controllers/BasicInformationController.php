@@ -9,6 +9,7 @@ use App\Models\Local;
 use App\Models\Region;
 use App\Models\State;
 use App\Models\Well;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class BasicInformationController extends Controller
 {
@@ -78,6 +79,16 @@ class BasicInformationController extends Controller
             'psd' => $data['psd'],
             'basic_information_id' => $basicInformation->id,
         ]);
+
+        $request->whenFilled('water_analysis_test_file', function ($input) use($basicInformation) {
+            $basicInformation->uploadFiles($input, 'water_analysis_test_file');
+        });
+        $request->whenFilled('geophysical_study_file', function ($input) use($basicInformation) {
+            $basicInformation->uploadFiles($input, 'geophysical_study_file');
+        });
+        $request->whenFilled('full_well_details_file', function ($input) use($basicInformation) {
+            $basicInformation->uploadFiles($input, 'full_well_details_file');
+        });
 
         session()->flash('success', 'تم الأضافة');
 
@@ -152,6 +163,16 @@ class BasicInformationController extends Controller
             'psd' => $data['psd'],
         ]);
 
+        $request->whenFilled('water_analysis_test_file', function ($input) use($basicInformation) {
+            $basicInformation->uploadFiles($input, 'water_analysis_test_file');
+        });
+        $request->whenFilled('geophysical_study_file', function ($input) use($basicInformation) {
+            $basicInformation->uploadFiles($input, 'geophysical_study_file');
+        });
+        $request->whenFilled('full_well_details_file', function ($input) use($basicInformation) {
+            $basicInformation->uploadFiles($input, 'full_well_details_file');
+        });
+
         session()->flash('success', 'تم التعديل');
 
         return redirect()->route('basic-informations.edit', $basicInformation->id);
@@ -170,5 +191,19 @@ class BasicInformationController extends Controller
         session()->flash('success', 'تم الحذف');
 
         return redirect()->route('basic-informations.index');
+    }
+
+    public function downloadFile(Media $media)
+    {
+        return $media;
+    }
+
+    public function deleteFile(Media $media, BasicInformation $basicInformation)
+    {
+        $media->delete();
+
+        session()->flash('success', 'تم حذف الملف بنجاح');
+
+        return redirect()->route('basic-informations.edit', $basicInformation->id);
     }
 }
