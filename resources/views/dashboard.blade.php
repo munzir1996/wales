@@ -3,6 +3,9 @@
 @push('title')
   Athrib
 @endpush
+@push('css')
+<link rel="stylesheet" href="{{asset('vendor/css/datatables.min.css')}}">
+@endpush
 @section('body')
     <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-2">
         <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl">
@@ -67,7 +70,7 @@
                 <div class="overflow-x-auto">
                     <div class="inline-block min-w-full align-middle">
                         <div class="overflow-hidden">
-                            <table class="min-w-full divide-y divide-gray-200">
+                            <table class="min-w-full divide-y divide-gray-200" id="wells-table">
                                 <thead>
                                     <tr>
 
@@ -249,3 +252,30 @@
         </div> --}}
     </section>
 @endsection
+
+@push('js')
+<script src="{{ asset('vendor/js/datatables.min.js') }}"></script>
+{{-- <script src="{{ asset('vendor/js/filterDropDown.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('vendor/js/datatables.bootstrap.js') }}"></script> --}}
+<script>
+    //Datatable
+    $(document).ready(function () {
+        $('#wells-table').DataTable({
+            dom: 'Bfrtip',
+            "language": {
+                "emptyTable": "لا توجد بيانات متوفرة في الجدول",
+                "search": "بحث:",
+                "lengthMenu": "_MENU_ السجلات",
+                "sInfo": "إظهار الصفحة _PAGE_ من _PAGES_",
+                "sInfoEmpty": "إظهار 0 إلى 0 من 0 السجلات",
+                "zeroRecords": "لم يتم العثور على سجلات مطابقة",
+                "infoFiltered": "(تمت تصفيته من إجمالي السجلات _MAX_)",
+            },
+            buttons: [
+                'excel', 'pdf'
+            ],
+
+        });
+    });
+</script>
+@endpush

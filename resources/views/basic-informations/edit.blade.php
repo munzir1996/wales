@@ -262,6 +262,39 @@
             </div>
         </div>
 
+        <div class="grid grid-cols-3 gap-8 mt-6">
+            <div x-data="{ files: null }">
+                <label for="region" name="psd"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">
+                    اختبار تحليل المياه
+                    <input type="file" name="water_analysis_test_file[]"
+                    class="border-2 border-gray-200 dark:text-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:focus:ring-opacity-40 p-3 w-full block rounded cursor-pointer my-2"
+                        x-on:change="files = Object.values($event.target.files)" multiple>
+                        <span x-text="files ? files.map(file => file.name).join(', ') : 'اختر عدة ملفات ...'"></span>
+                </label>
+            </div>
+            <div x-data="{ files: null }">
+                <label for="region" name="psd"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">
+                    الدراسة الجوفيزيائية
+                    <input type="file" name="geophysical_study_file[]"
+                    class="border-2 border-gray-200 dark:text-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:focus:ring-opacity-40 p-3 w-full block rounded cursor-pointer my-2"
+                        x-on:change="files = Object.values($event.target.files)" multiple>
+                        <span x-text="files ? files.map(file => file.name).join(', ') : 'اختر عدة ملفات ...'"></span>
+                </label>
+            </div>
+            <div x-data="{ files: null }">
+                <label for="region" name="psd"
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">
+                    تفاصيل البئر كاملة
+                    <input type="file" name="full_well_details_file[]"
+                    class="border-2 border-gray-200 dark:text-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:focus:ring-opacity-40 p-3 w-full block rounded cursor-pointer my-2"
+                        x-on:change="files = Object.values($event.target.files)" multiple>
+                        <span x-text="files ? files.map(file => file.name).join(', ') : 'اختر عدة ملفات ...'"></span>
+                </label>
+            </div>
+        </div>
+
         <div class="flex justify-start">
             <button
                 class="flex items-center px-2 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md hover:bg-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
