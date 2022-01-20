@@ -17,21 +17,21 @@
 @section('body')
 
 <div class="w-full p-4 bg-white rounded-lg xl:p-6">
-    <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">إنشاء مستخدم جديد</h1>
+    <h1 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">تعديل بينات {{$user->name}} </h1>
 
-    <form action="{{route('users.update')}}" class="mt-6 space-y-5" method="POST">
+    <form action="{{route('users.update', $user->id)}}" class="mt-6 space-y-5" method="POST">
         @csrf
         {{ method_field('PUT') }}
         <div>
-            <label for="state" name="name" class="block text-sm text-gray-700 capitalize dark:text-gray-200">الأسم</label>
-            <input type="text" name="name" placeholder="الأسم" value="{{old('name')}}" class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('name') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror" required>
+            <label for="user" name="name" class="block text-sm text-gray-700 capitalize dark:text-gray-200">الأسم</label>
+            <input type="text" name="name" placeholder="الأسم" value="{{$user->name}}" class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('name') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror" required>
             @error('name')
                 <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
             @enderror
         </div>
         <div>
             <label for="email" name="email" class="block text-sm text-gray-700 capitalize dark:text-gray-200">البريد الالكتروني</label>
-            <input type="email" name="email" placeholder="البريد الاكتروني" value="{{old('email')}}" class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('name') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror" required>
+            <input type="email" name="email" placeholder="البريد الاكتروني" value="{{$user->email}}" class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('name') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror" required>
             @error('email')
                 <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
             @enderror

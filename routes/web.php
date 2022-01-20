@@ -29,16 +29,6 @@ use App\Models\BasicInformation;
 
 Route::prefix('/')->middleware(['auth'])->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
-    // function () {
-
-    //     $user=User::count();
-
-    //     $basic=BasicInformation::count();
-
-    //     $infos=BasicInformation::get()->take(4);
-
-    //     return view('dashboard',compact('user','basic','infos'));
-    // })
     Route::resource('/states', StateController::class);
     Route::resource('/users', UserController::class);
 
