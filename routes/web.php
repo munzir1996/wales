@@ -29,17 +29,13 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/')->middleware(['auth'])->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-
-      
-  
-
     Route::get('states/locals/{state}', [StateController::class, 'getLocals']);
-    // Route::group(['middleware' => ['permission:admin']], function () {
+
     Route::resource('/locals', LocalController::class);
     Route::resource('/users', UserController::class);
     Route::resource('/states', StateController::class);
     Route::resource('/basic-informations', BasicInformationController::class)->parameter('basic_information', 'basicInformation');
-    // });
+   
     Route::get('locals/regions/{local}', [LocalController::class, 'getRegions']);
     Route::resource('/regions', RegionController::class);
     Route::resource('/project-managers', ProjectManagerController::class)->parameter('project_manager', 'projectManager');
