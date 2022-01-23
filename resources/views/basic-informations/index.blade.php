@@ -46,19 +46,19 @@
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        الولاية
+                                        state
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        المحلية
+                                        local
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        المنطقة
+                                        Region
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        تاريخ التنفيذ
+                                        Execution date
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">

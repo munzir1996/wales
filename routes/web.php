@@ -22,11 +22,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-Route::prefix('/')->middleware(['auth'])->group(function () {
+    Route::prefix('/')->middleware(['auth'])->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     Route::get('states/locals/{state}', [StateController::class, 'getLocals']);

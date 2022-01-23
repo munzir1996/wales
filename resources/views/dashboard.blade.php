@@ -76,23 +76,23 @@
 
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-500 uppercase">
-                                            <span>الجهه المالكه</span>
+                                            <span> The owner</span>
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-500 uppercase">
-                                            <span>الجهه الاستشاريه</span>
+                                            <span> the consulting board</span>
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-500 uppercase">
-                                            <span>الجهه الممولة</span>
+                                            <span> the financier</span>
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-500 uppercase">
-                                            <span>مدير المشروع</span>
+                                            <span> project manager </span>
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-500 uppercase">
-                                            <span>تاريخ التنفيذ</span>
+                                            <span> Execution date</span>
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
