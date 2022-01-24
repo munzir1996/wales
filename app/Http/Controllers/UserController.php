@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-       $this->middleware('permission:admin')->except('index');
+        $this->middleware('permission:admin')->except('index');
     }
     /**
      * Display a listing of the resource.
@@ -46,11 +46,12 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $data =  $request->validated();
-     
+
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' =>  Hash::make($data['password']),
+            ''
         ]);
         $user->syncPermissions($request->permissions);
         session()->flash('success', 'تم الأضافة');
@@ -77,8 +78,12 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $permissions = Permission::all();
-        return view('users.edit', compact('user', 'permissions'));
+        $permissions = Permission::all()->pluck('name');
+      
+        $userPermissions = $user->getPermissionNames(); 
+    
+
+        return view('users.edit', compact('user', 'permissions', 'userPermissions'));
     }
 
     /**

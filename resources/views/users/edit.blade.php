@@ -52,14 +52,14 @@
                     <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
                 @enderror
             </div>
-            <div>
+            <div dir="ltr">
                 <p>الصلاحيه:</p>
                 @foreach ($permissions as $permission)
-                    <input name="permissions[]" type="checkbox" value="{{ $permission }}"
+                    <input name="permissions[]" type="checkbox" value="{{$permission}}"
                         class="w-5 h-5 text-black-500 border-black-300 rounded-md focus:border-black-500 focus:ring focus:ring-black-300 focus:ring-opacity-40"
-                        {{ $permission ? ' checked' : '' }}>
+                        {{  ($userPermissions->contains($permission) ? ' checked' : '') }}>
                     <label class="mx-2 text-black-700 dark:text-blcak-200" for="{{ $permission }}">
-                        {{ $permission->name }}
+                        {{ $permission }}
                     </label>
                 @endforeach
             </div>

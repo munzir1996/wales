@@ -46,7 +46,7 @@
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                        state
+                                        state الولايه
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">

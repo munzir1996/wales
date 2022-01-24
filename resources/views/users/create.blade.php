@@ -57,7 +57,7 @@
                 
                 @foreach ($permissions as $permission)
                     <input name="permissions[]" type="checkbox" value="{{ $permission->name }}"
-                        class="w-5 h-5 text-green-500 border-black-300 rounded-md focus:border-black-500 focus:ring focus:ring-green-300 focus:ring-opacity-40">
+                    class="w-5 h-5 text-green-500 border-black-300 rounded-md focus:border-black-500 focus:ring focus:ring-green-300 focus:ring-opacity-40" >
                     <label class="mx-2 text-black-700 dark:text-black-200" for="{{ $permission }}">
                         {{ $permission->name }}
                     </label>
