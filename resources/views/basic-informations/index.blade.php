@@ -58,7 +58,31 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                            Execution date
+                                            Owner
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                            Advisor
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                            Funded
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                            P.M
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                            Date
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                            Days
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
+                                            Cost
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
@@ -83,9 +107,26 @@
                                                 {{ $basicInformation->region->name }}
                                             </td>
                                             <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
+                                                {{ $basicInformation->owner }}
+                                            </td>
+                                            <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
+                                                {{ $basicInformation->advisor }}
+                                            </td>
+                                            <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
+                                                {{ $basicInformation->funded }}
+                                            </td>
+                                            <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
+                                                {{ $basicInformation->project_manager }}
+                                            </td>
+                                            <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
                                                 {{ $basicInformation->start_date }}
                                             </td>
-
+                                            <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
+                                                {{ $basicInformation->execution_time }}
+                                            </td>
+                                            <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
+                                                {{ $basicInformation->total_cost }}
+                                            </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center space-x-2">
                                                     <a href="{{ route('basic-informations.show', $basicInformation->id) }}"
@@ -158,6 +199,38 @@
                 "order": [
                     [0, "desc"]
                 ],
+                "columnDefs": [
+                    {
+                        "targets": [ 4 ],
+                        "visible": false,
+                        "searchable": false
+                    },
+                    {
+                        "targets": [ 5 ],
+                        "visible": false,
+                        "searchable": false
+                    },
+                    {
+                        "targets": [ 6 ],
+                        "visible": false,
+                        "searchable": false
+                    },
+                    {
+                        "targets": [ 7 ],
+                        "visible": false,
+                        "searchable": false
+                    },
+                    {
+                        "targets": [ 9 ],
+                        "visible": false,
+                        "searchable": false
+                    },
+                    {
+                        "targets": [ 10 ],
+                        "visible": false,
+                        "searchable": false
+                    },
+                ],
                 "language": {
                     "emptyTable": "لا توجد بيانات متوفرة في الجدول",
                     "search": "بحث:",
@@ -170,6 +243,7 @@
                 buttons: ['excel', {
                     extend: 'pdfHtml5',
                     text: 'PDF',
+                    orientation: 'landscape',
                     title: 'Basic Information',
                     footer: true,
                     customize: function(doc) {
