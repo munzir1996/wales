@@ -51,7 +51,7 @@ class UserController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' =>  Hash::make($data['password']),
-            ''
+          
         ]);
         $user->syncPermissions($request->permissions);
         session()->flash('success', 'تم الأضافة');
