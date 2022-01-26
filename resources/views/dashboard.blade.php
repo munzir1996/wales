@@ -272,7 +272,7 @@
                 "infoFiltered": "(تمت تصفيته من إجمالي السجلات _MAX_)",
             },
             buttons: [
-                'excel', 'pdf'
+                'excel', 'print'
             ],
 
         });

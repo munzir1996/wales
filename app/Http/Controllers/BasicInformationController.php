@@ -209,6 +209,6 @@ class BasicInformationController extends Controller
 
         session()->flash('success', 'تم حذف الملف بنجاح');
 
-        return redirect()->route('basic-informations.edit', $basicInformation->id);
+        return back();
     }
 }
