@@ -1,7 +1,8 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <img src="{{ asset('assets/images/logo.jpeg') }}" alt="images" style="width:200px;height:200px;">
+            <img src="{{ asset('assets/images/logo-w.jpeg') }}" alt="images" style="width:200px;height:200px;">
+
 
         </x-slot>
 
@@ -47,6 +48,6 @@
 
     <footer class="text-center">
         <a href="http://www.athrib.com/" style="color:rgb(0, 0, 255)">Athrib</a> كل الحقوق محفوظة 2022 لي | All &copy;
-        Copyright 2022 To <a href="http://www.athrib.com/" style="color:rgb(0, 0, 255)">Athrib</a>
+        Copyright 2022 To <a href="http://www.athrib.com/" style="color:rgb(0, 0, 255)">Athrib</a> | Devolped and Powered by Athirib
     </footer>
 </x-guest-layout>
