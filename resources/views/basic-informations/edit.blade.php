@@ -72,19 +72,16 @@
                 @enderror
             </div>
         </div>
-        <div
-        x-init="$watch('selectedlocal', (selectedlocal) => { fetch('http://localhost:8000/locals/regions/' + selectedlocal).then(res=> res.json()).then((regionData) => { regions = regionData }) })">
+        <div>
         <label for="project_status" class="block text-sm text-black-700 capitalize dark:text-black-200">حاله المشروع:</label>
-        <select name="project_status" x-model="selectedlocal"
+        <select name="project_status" x-model="projectStatus"
             class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
             required>
-            <option>
-               
-            </option>
-            <option :value="{{$basicInformation->project_status== 0 ? 'checked' : ''}}" name="project_status" >
+            <option value="" disabled></option>
+            <option :value="0" {{$basicInformation->project_status == 0 ? 'selected': ''}} >
                 قيد التنفيذ
             </option>
-            <option :value="{{$basicInformation->project_status== 1 ? 'checked' :''}}" name="project_status">
+            <option :value="1" {{$basicInformation->project_status == 1 ? 'selected': ''}}>
                 تم التنفيذ
             </option>
       

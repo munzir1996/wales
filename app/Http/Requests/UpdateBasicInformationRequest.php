@@ -25,6 +25,8 @@ class UpdateBasicInformationRequest extends FormRequest
     {
         return [
             'start_date' => 'required',
+            'project_name' => 'required',
+            'project_status' => 'required',
             'execution_time' => 'required',
             'owner' => 'required',
             'advisor' => 'required',
@@ -56,6 +58,8 @@ class UpdateBasicInformationRequest extends FormRequest
     public function messages()
     {
         return [
+            'project_name.required' => 'إسم المشروع مطلوب',
+            'project_status.required' => 'حاله المشروع مطلوبه',
             'start_date.required' => 'تاريخ التنفيذ مطلوب',
             'execution_time.required' => 'مدة التنفيذ مطلوب',
             'owner.required' => 'الجهة المالكة مطلوبة',

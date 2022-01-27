@@ -45,7 +45,7 @@
             <div>
                 <label for="project_status" name="project_status"
                     class="block text-sm text-gray-700 capitalize dark:text-black-200">حاله المشروع</label>
-                <input type="text" name="project_status" placeholder="المنطقه" value="{{ $basicInformation->project_status == 0 ?'تم التنفيذ':'قيد التنفيذ'  }}"
+                <input type="text" name="project_status" placeholder="المنطقه" value="{{ $basicInformation->project_status == 0 ? 'قيد التنفيذ' :'تم التنفيذ'}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border" disabled>
             </div>
 
