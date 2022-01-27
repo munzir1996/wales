@@ -125,7 +125,7 @@ class BasicInformationController extends Controller
      */
     public function edit(BasicInformation $basicInformation)
     {
-        //  dd($basicInformation);
+        //   dd($basicInformation);
         $states = State::all();
         $locals = Local::all();
         $regions = Region::all();

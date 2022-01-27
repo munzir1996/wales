@@ -79,7 +79,7 @@
                 <label for="project_status" class="block text-sm text-black-700 capitalize dark:text-black-200">حاله
                     المشروع:
                 </label>
-                <select name="project_status" x-model="projectStatus"
+                <select name="project_status"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                     required>
                         <option value="" disabled></option>
