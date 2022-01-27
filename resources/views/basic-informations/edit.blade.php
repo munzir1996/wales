@@ -77,19 +77,18 @@
             </div>
             <div>
                 <label for="project_status" class="block text-sm text-black-700 capitalize dark:text-black-200">حاله
-                    المشروع:</label>
+                    المشروع:
+                </label>
                 <select name="project_status" x-model="projectStatus"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                     required>
-                    <template>
                         <option value="" disabled></option>
-                        <option :value="0"  {{ $basicInformation->project_status == 0 ? 'selected' : '' }}>
+                        <option :value="0"  {{ $basicInformation->project_status == '0' ? 'selected' : '' }}>
                             قيد التنفيذ
                         </option>
-                        <option :value="1" {{ $basicInformation->project_status == 1 ? 'selected' : '' }}>
+                        <option :value="1" {{ $basicInformation->project_status == '1' ? 'selected' : '' }}>
                             تم التنفيذ
                         </option>
-                    </template>
                 </select>
                 @error('project_status')
                     <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
