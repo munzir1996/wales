@@ -60,7 +60,10 @@ class BasicInformationController extends Controller
     {
         $data = $request->validated();
 
+        // dd($request->all());
         $basicInformation = BasicInformation::create([
+            'project_name'=>$data['project_name'],
+            'project_status'=>$data['project_status'],
             'start_date' => $data['start_date'],
             'execution_time' => $data['execution_time'],
             'owner' => $data['owner'],
@@ -72,6 +75,7 @@ class BasicInformationController extends Controller
             'region_id' => $data['region_id'],
             'project_manager' => $data['project_manager'],
         ]);
+        
 
         Well::create([
             'longitude' => $data['longitude'],
@@ -145,6 +149,8 @@ class BasicInformationController extends Controller
         $data = $request->validated();
 
         $basicInformation->update([
+            'project_name'=>$data['project_name'],
+            'project_status'=>$data['project_status'],
             'start_date' => $data['start_date'],
             'execution_time' => $data['execution_time'],
             'owner' => $data['owner'],

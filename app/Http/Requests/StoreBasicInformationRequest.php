@@ -24,6 +24,8 @@ class StoreBasicInformationRequest extends FormRequest
     public function rules()
     {
         return [
+            'project_name' => 'required',
+            'project_status' => 'required',
             'start_date' => 'required',
             'execution_time' => 'required',
             'owner' => 'required',
@@ -56,6 +58,8 @@ class StoreBasicInformationRequest extends FormRequest
     public function messages()
     {
         return [
+            'project_name.required' => 'إسم المشروع مطلوب',
+            'project_status.required' => 'حاله المشروع مطلوبه',
             'start_date.required' => 'تاريخ التنفيذ مطلوب',
             'execution_time.required' => 'مدة التنفيذ مطلوب',
             'owner.required' => 'الجهة المالكة مطلوبة',

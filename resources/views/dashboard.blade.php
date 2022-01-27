@@ -10,10 +10,10 @@
     <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-2">
         <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl">
             <div>
-                <p class="font-medium text-gray-500">عدد المستخدمين </p>
+                <p class="font-medium text-gray-500">عددالمشاريع المنفذه  </p>
 
                 <div class="flex items-end space-x-2">
-                    <h2 class="mt-1 text-2xl font-medium text-gray-800">{{ $userCount }}</h2>
+                    <h2 class="mt-1 text-2xl font-medium text-gray-800">{{ $done }}</h2>
                     <span class="text-indigo-500">
 
                     </span>
@@ -28,7 +28,26 @@
                 </svg>
             </div>
         </div>
+        <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl ">
+            <div>
+                <p class="font-medium text-gray-500">عدد المشاريع قيد التنفيذ</p>
 
+                <div class="flex items-end space-x-2">
+                    <h2 class="mt-1 text-2xl font-medium text-gray-800">{{ $inProgress }}</h2>
+                    <span class="text-indigo-500">
+
+                    </span>
+                </div>
+            </div>
+
+            <div class="p-2 text-white bg-indigo-500 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+            </div>
+        </div>
         <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl ">
             <div>
                 <p class="font-medium text-gray-500">عدد الأبار</p>

@@ -28,6 +28,8 @@ class BasicInformationFactory extends Factory
             'local_id' => Local::factory()->create()->id,
             'region_id' => Region::factory()->create()->id,
             'project_manager' => $this->faker->name(),
+            'project_name'=>$this->faker->name(),
+            
         ];
     }
 }

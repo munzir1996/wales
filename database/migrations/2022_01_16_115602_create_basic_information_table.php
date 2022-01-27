@@ -16,6 +16,8 @@ class CreateBasicInformationTable extends Migration
         Schema::create('basic_information', function (Blueprint $table) {
             $table->id();
             $table->date('start_date');
+            $table->string('project_name');
+            $table->boolean('project_status')->default(0);
             $table->unsignedInteger('execution_time');
             $table->string('owner');
             $table->string('advisor');

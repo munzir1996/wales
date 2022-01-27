@@ -25,7 +25,7 @@
         <div class="grid grid-cols-3 gap-8 mt-6"
             x-data="{ selectedState: {{$basicInformation->state_id}}, selectedlocal: {{$basicInformation->local_id}}, selectedRegion: {{$basicInformation->region_id}}, states: {{$states}},  locals: {{$locals}}, regions: {{$regions}} }">
             <div x-init="$watch('selectedState', (selectedState) => { fetch('http://localhost:8000/states/locals/' + selectedState).then(res=> res.json()).then((localData) => { locals = localData }) })">
-                <label for="states" class="block text-sm text-gray-700 capitalize dark:text-gray-200">الولاية</label>
+                <label for="states" class="block text-sm text-gray-700 capitalize dark:text-black-200">الولاية</label>
                 <select name="state_id" x-model="selectedState"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                     required>
@@ -41,7 +41,7 @@
             </div>
 
             <div x-init="$watch('selectedlocal', (selectedlocal) => { fetch('http://localhost:8000/locals/regions/' + selectedlocal).then(res=> res.json()).then((regionData) => { regions = regionData }) })">
-                <label for="locals" class="block text-sm text-gray-700 capitalize dark:text-gray-200">المحلية</label>
+                <label for="locals" class="block text-sm text-black-700 capitalize dark:text-black-200">المحلية</label>
                 <select name="local_id" x-model="selectedlocal"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                     required>
@@ -57,7 +57,7 @@
             </div>
 
             <div>
-                <label for="locals" class="block text-sm text-gray-700 capitalize dark:text-gray-200">المنطقه</label>
+                <label for="locals" class="block text-sm text-black-700 capitalize dark:text-black-200">المنطقه</label>
                 <select name="region_id"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                     required>
@@ -72,11 +72,43 @@
                 @enderror
             </div>
         </div>
+        <div
+        x-init="$watch('selectedlocal', (selectedlocal) => { fetch('http://localhost:8000/locals/regions/' + selectedlocal).then(res=> res.json()).then((regionData) => { regions = regionData }) })">
+        <label for="project_status" class="block text-sm text-black-700 capitalize dark:text-black-200">حاله المشروع:</label>
+        <select name="project_status" x-model="selectedlocal"
+            class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+            required>
+            <option>
+               
+            </option>
+            <option :value="{{$basicInformation->project_status== 0 ? 'checked' : ''}}" name="project_status" >
+                قيد التنفيذ
+            </option>
+            <option :value="{{$basicInformation->project_status== 1 ? 'checked' :''}}" name="project_status">
+                تم التنفيذ
+            </option>
+      
+        </select>
+        @error('project_status')
+            <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+        @enderror
+    </div>
 
         <div class="grid grid-cols-2 gap-8 mt-6">
+          
+                <div>
+                    <label for="project_name" name="project_name"
+                        class="block text-sm text-gray-700 capitalize dark:text-black-200"> إسم المشروع</label>
+                    <input type="text" name="project_name" placeholder=" إسم المشروع" value="{{ $basicInformation->project_name}}"
+                        class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('project_name') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
+                        required>
+                    @error('project_name')
+                        <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                    @enderror
+                </div>
             <div>
                 <label for="region" name="start_date"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">تاريخ التنفيذ</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">تاريخ التنفيذ</label>
                 <input type="date" name="start_date" placeholder="تاريخ التنفيذ" value="{{$basicInformation->start_date}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('start_date') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -86,7 +118,7 @@
             </div>
             <div>
                 <label for="region" name="execution_time"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">مدة التنفيذ</label>
+                class="block text-sm text-gray-700 capitalize dark:text-black-200">مده التنفيذ (بالأيام) </label>
                 <input type="number" min="1" name="execution_time" placeholder="مدة التنفيذ" value="{{$basicInformation->execution_time}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('execution_time') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -99,7 +131,7 @@
         <div class="grid grid-cols-2 gap-8 mt-6">
             <div>
                 <label for="region" name="owner"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">الجهة المالكة</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">الجهة المالكة</label>
                 <input type="text" name="owner" placeholder="الجهة المالكة" value="{{$basicInformation->owner}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('owner') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -109,7 +141,7 @@
             </div>
             <div>
                 <label for="region" name="advisor"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">الجهة الأستشارية</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">الجهة الأستشارية</label>
                 <input type="text" name="advisor" placeholder="الجهة الأستشارية" value="{{$basicInformation->advisor}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('advisor') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -122,7 +154,7 @@
         <div class="grid grid-cols-2 gap-8 mt-6">
             <div>
                 <label for="region" name="funded"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">الجهة الممولة</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">الجهة الممولة</label>
                 <input type="text" name="funded" placeholder="الجهة الممولة" value="{{$basicInformation->funded}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('funded') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -132,7 +164,7 @@
             </div>
             <div>
                 <label for="region" name="project_manager"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">مدير المشروع</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">مدير المشروع</label>
                 <input type="text" name="project_manager" placeholder="مدير المشروع" value="{{$basicInformation->project_manager}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('project_manager') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -145,7 +177,7 @@
         <div class="grid grid-cols-2 gap-8 mt-6">
             <div>
                 <label for="region" name="total_cost"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">التكلفة الكلية</label>
+                class="block text-sm text-gray-700 capitalize dark:text-black-200">  التكلفة الكليه (بالدولار)</label>
                 <input type="number" name="total_cost" min="0.01" step="0.01" placeholder="التكلفة الكلية" value="{{$basicInformation->total_cost}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('total_cost') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -160,7 +192,7 @@
         <div class="grid grid-cols-2 gap-8 mt-6">
             <div>
                 <label for="region" name="longitude"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">خط الطول</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">خط الطول</label>
                 <input type="number" step="0.01" name="longitude" placeholder="خط الطول" value="{{$basicInformation->well->longitude}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('longitude') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -170,7 +202,7 @@
             </div>
             <div>
                 <label for="region" name="latitude"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">خط العرض</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">خط العرض</label>
                 <input type="number" step="0.01" name="latitude" placeholder="خط العرض" value="{{$basicInformation->well->latitude}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('latitude') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -183,7 +215,7 @@
         <div class="grid grid-cols-2 gap-8 mt-6">
             <div>
                 <label for="region" name="well_depth"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">عمق البئر</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">عمق البئر</label>
                 <input type="number" min="0.01" step="0.01" name="well_depth" placeholder="عمق البئر" value="{{$basicInformation->well->well_depth}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('well_depth') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -193,7 +225,7 @@
             </div>
             <div>
                 <label for="region" name="packaging_depth"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">عمق التغليف</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">عمق التغليف</label>
                 <input type="number" min="0.01" step="0.01" name="packaging_depth" placeholder="عمق التغليف" value="{{$basicInformation->well->packaging_depth}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('packaging_depth') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -206,7 +238,7 @@
         <div class="grid grid-cols-2 gap-8 mt-6">
             <div>
                 <label for="region" name="swl"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">مستوي المياه الثابت (S.W.L)</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">مستوي المياه الثابت (S.W.L)</label>
                 <input type="number" min="0.01" step="0.01" name="swl" placeholder="مستوي المياه الثابت (S.W.L)" value="{{$basicInformation->well->swl}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('swl') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -216,7 +248,7 @@
             </div>
             <div>
                 <label for="region" name="dwl"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">مستوي المياه المتحرك (D.W.L)</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">مستوي المياه المتحرك (D.W.L)</label>
                 <input type="number" min="0.01" step="0.01" name="dwl" placeholder="مستوي المياه المتحرك (D.W.L)" value="{{$basicInformation->well->dwl}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('dwl') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -229,7 +261,7 @@
         <div class="grid grid-cols-2 gap-8 mt-6">
             <div>
                 <label for="region" name="swl"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">مستوي المياه الثابت (S.W.L)</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">مستوي المياه الثابت (S.W.L)</label>
                 <input type="number" min="0.01" step="0.01" name="swl" placeholder="مستوي المياه الثابت (S.W.L)" value="{{$basicInformation->well->swl}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('swl') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -239,7 +271,7 @@
             </div>
             <div>
                 <label for="region" name="productivity"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">الإنتاجية</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">الإنتاجية</label>
                 <input type="number" min="0.01" step="0.01" name="productivity" placeholder="الإنتاجية" value="{{$basicInformation->well->productivity}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('productivity') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
@@ -252,7 +284,7 @@
         <div class="grid grid-cols-2 gap-8 mt-6">
             <div>
                 <label for="region" name="psd"
-                    class="block text-sm text-gray-700 capitalize dark:text-gray-200">مستوي الإنزال (P.S.D)</label>
+                    class="block text-sm text-gray-700 capitalize dark:text-black-200">مستوي الإنزال (P.S.D)</label>
                 <input type="number" min="0.01" step="0.01" name="psd" placeholder="مستوي الإنزال (P.S.D)" value="{{$basicInformation->well->psd}}"
                     class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border @error('psd') border-red-500 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40 @enderror"
                     required>
