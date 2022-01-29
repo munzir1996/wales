@@ -13,7 +13,7 @@ class DashboardController extends Controller
     {
         $userCount = User::all()->count();
         $wellCount = Well::all()->count();
-        $basicInformations = BasicInformation::latest()->take(5)->get();
+        $basicInformations = BasicInformation::latest()->get();
         $done=BasicInformation::where('project_status',1)->count();
         $inProgress=BasicInformation::where('project_status',0)->count();
         return view('dashboard', [

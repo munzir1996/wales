@@ -42,6 +42,6 @@ Route::prefix('/')->middleware(['auth'])->group(function () {
     Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
     Route::get('/report', [App\Http\Controllers\SearchController::class, 'report'])->name('report');
 });
-
+    
 
 require __DIR__ . '/auth.php';
