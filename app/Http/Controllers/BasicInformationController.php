@@ -9,6 +9,7 @@ use App\Models\Local;
 use App\Models\Region;
 use App\Models\State;
 use App\Models\Well;
+use GuzzleHttp\Psr7\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class BasicInformationController extends Controller
@@ -62,8 +63,8 @@ class BasicInformationController extends Controller
 
         // dd($request->all());
         $basicInformation = BasicInformation::create([
-            'project_name'=>$data['project_name'],
-            'project_status'=>$data['project_status'],
+            'project_name' => $data['project_name'],
+            'project_status' => $data['project_status'],
             'start_date' => $data['start_date'],
             'execution_time' => $data['execution_time'],
             'owner' => $data['owner'],
@@ -75,7 +76,7 @@ class BasicInformationController extends Controller
             'region_id' => $data['region_id'],
             'project_manager' => $data['project_manager'],
         ]);
-        
+
 
         Well::create([
             'longitude' => $data['longitude'],
@@ -89,13 +90,13 @@ class BasicInformationController extends Controller
             'basic_information_id' => $basicInformation->id,
         ]);
 
-        $request->whenHas('water_analysis_test_file', function ($input) use($basicInformation) {
+        $request->whenHas('water_analysis_test_file', function ($input) use ($basicInformation) {
             $basicInformation->uploadFiles($input, 'water_analysis_test_file');
         });
-        $request->whenHas('geophysical_study_file', function ($input) use($basicInformation) {
+        $request->whenHas('geophysical_study_file', function ($input) use ($basicInformation) {
             $basicInformation->uploadFiles($input, 'geophysical_study_file');
         });
-        $request->whenHas('full_well_details_file', function ($input) use($basicInformation) {
+        $request->whenHas('full_well_details_file', function ($input) use ($basicInformation) {
             $basicInformation->uploadFiles($input, 'full_well_details_file');
         });
 
@@ -125,7 +126,7 @@ class BasicInformationController extends Controller
      */
     public function edit(BasicInformation $basicInformation)
     {
-        //   dd($basicInformation);
+        // `  dd($basicInformation);
         $states = State::all();
         $locals = Local::all();
         $regions = Region::all();
@@ -150,8 +151,8 @@ class BasicInformationController extends Controller
         $data = $request->validated();
 
         $basicInformation->update([
-            'project_name'=>$data['project_name'],
-            'project_status'=>$data['project_status'],
+            'project_name' => $data['project_name'],
+            'project_status' => $data['project_status'],
             'start_date' => $data['start_date'],
             'execution_time' => $data['execution_time'],
             'owner' => $data['owner'],
@@ -175,13 +176,13 @@ class BasicInformationController extends Controller
             'psd' => $data['psd'],
         ]);
 
-        $request->whenHas('water_analysis_test_file', function ($input) use($basicInformation) {
+        $request->whenHas('water_analysis_test_file', function ($input) use ($basicInformation) {
             $basicInformation->uploadFiles($input, 'water_analysis_test_file');
         });
-        $request->whenHas('geophysical_study_file', function ($input) use($basicInformation) {
+        $request->whenHas('geophysical_study_file', function ($input) use ($basicInformation) {
             $basicInformation->uploadFiles($input, 'geophysical_study_file');
         });
-        $request->whenHas('full_well_details_file', function ($input) use($basicInformation) {
+        $request->whenHas('full_well_details_file', function ($input) use ($basicInformation) {
             $basicInformation->uploadFiles($input, 'full_well_details_file');
         });
 
@@ -218,4 +219,6 @@ class BasicInformationController extends Controller
 
         return back();
     }
+
+  
 }

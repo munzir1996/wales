@@ -27,7 +27,7 @@
                     x-init="$watch('selectedState', (selectedState) => { fetch('http://localhost:8000/states/locals/' + selectedState).then(res=> res.json()).then((localData) => { locals = localData }) })">
                     <label for="states" class="block text-sm text-gray-700 capitalize dark:text-balck-200">الولاية</label>
                     <select name="state_id" x-model="selectedState"
-                        class="block w-full px-3 py-2 mt-2 text-gray-600 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
+                        class="block w-full px-3 py-2 mt-2 text-gray-200 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40"
                         required>
                         <option></option>
                         <template x-for="state in states" :key="state.id">

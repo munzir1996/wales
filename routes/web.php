@@ -39,7 +39,7 @@ Route::prefix('/')->middleware(['auth'])->group(function () {
 
     Route::get('basic-informations/download/file/{media}', [BasicInformationController::class, 'downloadFile'])->name('basic_informations.downloadfile');
     Route::get('basic-informations/delete/file/{media}/{donorentity}', [BasicInformationController::class, 'deleteFile'])->name('basic_informations.deletefile');
-
+    Route::get('/search', [App\Http\Controllers\SearchController::class,'search'])->name('search');
 });
 
 
