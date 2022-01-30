@@ -16,6 +16,7 @@ class DashboardController extends Controller
         $basicInformations = BasicInformation::latest()->get();
         $done=BasicInformation::where('project_status',1)->count();
         $inProgress=BasicInformation::where('project_status',0)->count();
+     
         return view('dashboard', [
             'userCount' => $userCount,
             'wellCount' => $wellCount,

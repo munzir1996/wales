@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @push('title')
-  Athrib
+    Wales
 @endpush
 @push('css')
-<link rel="stylesheet" href="{{asset('vendor/css/datatables.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/datatables.min.css') }}">
 @endpush
 @section('body')
     <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-2">
         <div class="flex items-center justify-between px-6 py-3 bg-white shadow-sm rounded-xl">
             <div>
-                <p class="font-medium text-gray-500">عددالمشاريع المنفذه  </p>
+                <p class="font-medium text-gray-500">عددالمشاريع المنفذه </p>
 
                 <div class="flex items-end space-x-2">
                     <h2 class="mt-1 text-2xl font-medium text-gray-800">{{ $done }}</h2>
@@ -106,19 +106,19 @@
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                            state
+                                            الولايه
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                            local
+                                            المحليه
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                            Region
+                                            المنطقه
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
-                                            Owner
+                                            المالك
                                         </th>
                                         {{-- <th scope="col"
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
@@ -150,17 +150,20 @@
 
 
                                         <th>
-                                            <a href="{{ route('report') }}">
+                                            <form action="{{ route('report') }}" method="POST">
+                                                @csrf
                                                 <button class="text-gray-500 focus:outline-none hover:text-indigo-500">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
-                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <input type="hidden" name=" basicInformations" id="" value="{{$basicInformations}}">
+                                                    <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
                                                             stroke-width="2"
-                                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                                            d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z">
                                                         </path>
                                                     </svg>
-                                                </button>
-                                            </a>
+                                            </form>
+                                            </button>
+
                                         </th>
 
 
@@ -261,5 +264,3 @@
         </div>
     </section>
 @endsection
-
-
