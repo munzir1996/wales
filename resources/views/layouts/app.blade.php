@@ -58,6 +58,7 @@
         <!-- Scripts -->
         @include('includes.scripts')
         @include('includes.messages')
+  
     </body>
  
 </html>

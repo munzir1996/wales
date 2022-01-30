@@ -262,5 +262,9 @@
                 </div>
             </div>
         </div>
+      
     </section>
+    <div>
+        <p style="text-align: center">All &copy;  Rights to Wales 2022 | Developed and Powerded by <a href="http://www.athrib.com/">Athrib</a></p>
+    </div>
 @endsection
