@@ -16,7 +16,6 @@
 	header: page-header;
 	footer: page-footer;
 }
-
 </style>
 
 <body dir="rtl">
@@ -29,7 +28,6 @@
         <div class="p-4 bg-white rounded-lg shadow-sm xl:p-8">
             {{-- <div class="space-y-3 sm:flex sm:items-start sm:space-y-0 sm:justify-between">
                 <h2 class="text-lg font-medium text-gray-700 capitalize sm:text-xl md:text-2xl">الأبار</h2>
-
                 <a href="{{ route('basic-informations.create') }}"
                     class="flex items-center justify-center px-3 py-2 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
@@ -37,13 +35,10 @@
                             d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                             clip-rule="evenodd"></path>
                     </svg>
-
                     <span>أضافة بئر</span>
                 </a>
-
                 <!-- component -->
                 <!-- This is an example component -->
-  
             </div> --}}
             {{-- <form action="{{route('search')}}" method="GET">
                 @csrf
@@ -92,7 +87,7 @@
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
                                             P.M
                                         </th>
-                                   
+
                                         <th scope="col"
                                             class="px-5 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
                                             Days
@@ -109,13 +104,13 @@
                                 </thead>
 
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                    @foreach ($basicInformations as  $basicInformation )
+                                    @foreach($basicInformations as $index => $basicInformation)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ $basicInformation[0] }}
+                                                {{ $basicInformation->id }}
                                             </td>
 
-                                            {{-- <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
+                                            <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
                                                 {{ $basicInformation->state->name }}
                                             </td>
                                             <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
@@ -136,7 +131,7 @@
                                             <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
                                                 {{ $basicInformation->project_manager }}
                                             </td>
-                                        
+
                                             <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
                                                 {{ $basicInformation->execution_time }}
                                             </td>
@@ -145,7 +140,7 @@
                                             </td>
                                             <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
                                                 {{ $basicInformation->start_date }}
-                                            </td> --}}
+                                            </td>
                                         </tr>
                                     @endforeach
 

@@ -29,10 +29,12 @@ class SearchController extends Controller
 
     public function report(Request $request)
     {
-         dd($request->basicInformations);
-        $basicInformations = explode("}", $request->basicInformations);
-            dd($basicInformations[0]);
-        $pdf = PDF::loadView('report', compact('basicInformations'));
+        ini_set('max_execution_time', 300);
+        $basicInformationIds = json_decode($request->basicInformations, true);
+        $basicInformations = BasicInformation::whereIn('id', $basicInformationIds)->get();
+        $pdf = PDF::loadView('report', [
+            'basicInformations' => $basicInformations,
+        ]);
         return $pdf->stream('report.pdf');
     }
 }
