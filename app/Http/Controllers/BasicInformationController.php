@@ -61,7 +61,6 @@ class BasicInformationController extends Controller
     {
         $data = $request->validated();
 
-        // dd($request->all());
         $basicInformation = BasicInformation::create([
             'project_name' => $data['project_name'],
             'project_status' => $data['project_status'],
@@ -220,5 +219,5 @@ class BasicInformationController extends Controller
         return back();
     }
 
-  
+
 }

@@ -43,7 +43,7 @@
 
                 <!-- component -->
                 <!-- This is an example component -->
-  
+
             </div> --}}
             {{-- <form action="{{route('search')}}" method="GET">
                 @csrf
@@ -92,7 +92,7 @@
                                             class="px-6 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
                                             P.M
                                         </th>
-                                   
+
                                         <th scope="col"
                                             class="px-5 py-3 text-sm font-medium tracking-wider text-right text-gray-700 uppercase whitespace-nowrap">
                                             Days
@@ -109,7 +109,7 @@
                                 </thead>
 
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                    @for ($basicInformations as $index => $basicInformation)
+                                    @foreach($basicInformations as $index => $basicInformation)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 {{ $basicInformation->id }}
@@ -136,7 +136,7 @@
                                             <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
                                                 {{ $basicInformation->project_manager }}
                                             </td>
-                                        
+
                                             <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
                                                 {{ $basicInformation->execution_time }}
                                             </td>
