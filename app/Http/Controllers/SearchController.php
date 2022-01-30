@@ -35,6 +35,6 @@ class SearchController extends Controller
         $pdf = PDF::loadView('report', [
             'basicInformations' => $basicInformations,
         ]);
-        return $pdf->stream('report.pdf');
+        return $pdf->download('BasicInfo.pdf');
     }
 }

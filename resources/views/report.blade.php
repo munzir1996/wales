@@ -138,6 +138,7 @@
     <br>
 <div name="page-footer" style="margin-top: 180px">
     <img src="{{ asset('assets/images/footer.jpeg') }}" alt="images" style="width:900px;height:100px;">
+    <p style="text-align: center">All &copy;  Rights to Wales 2022 | Developed and Powerded by <a href="http://www.athrib.com/">Athrib</a></p>
 </div>
 </body>
 
