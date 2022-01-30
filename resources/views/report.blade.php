@@ -109,13 +109,13 @@
                                 </thead>
 
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                    @for ($basicInformations as $index => $basicInformation)
+                                    @foreach ($basicInformations as  $basicInformation )
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                {{ $basicInformation->id }}
+                                                {{ $basicInformation[0] }}
                                             </td>
 
-                                            <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
+                                            {{-- <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
                                                 {{ $basicInformation->state->name }}
                                             </td>
                                             <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
@@ -145,7 +145,7 @@
                                             </td>
                                             <td class="flex-1 px-6 py-4 text-gray-500 whitespace-nowrap">
                                                 {{ $basicInformation->start_date }}
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                     @endforeach
 
