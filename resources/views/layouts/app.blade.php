@@ -49,6 +49,7 @@
 
                         <div class="mt-6">
                             @yield('body')
+                            
                         </div>
                     </div>
                 </main>

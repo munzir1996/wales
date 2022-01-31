@@ -44,10 +44,9 @@
                 </x-button>
             </div>
         </form>
+     
     </x-auth-card>
+ 
 
-    <footer class="text-center">
-        <a href="http://www.athrib.com/" style="color:rgb(0, 0, 255)">Athrib</a> كل الحقوق محفوظة 2022 لي | All &copy;
-        Copyright 2022 To <a href="http://www.athrib.com/" style="color:rgb(0, 0, 255)">Athrib</a> | Devolped and Powered by Athirib
-    </footer>
+
 </x-guest-layout>
