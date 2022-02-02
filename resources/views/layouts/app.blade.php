@@ -49,6 +49,7 @@
 
                         <div class="mt-6">
                             @yield('body')
+                            
                         </div>
                     </div>
                 </main>
@@ -58,6 +59,7 @@
         <!-- Scripts -->
         @include('includes.scripts')
         @include('includes.messages')
+  
     </body>
  
 </html>
